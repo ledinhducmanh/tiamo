@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiamo - Trao quà, Gửi yêu thương</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="gradient-bg min-h-full">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-pink-500">💝 Tiamo</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
+                    <a href="#occasions" class="text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
+                    <a href="#recipients" class="text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
+                    <a href="#suggestions" class="text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
+                    <a href="#blog" class="text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-pink-500">🛒 <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1 ml-1">3</span></button>
+                    <button class="text-gray-700 hover:text-pink-500">❤️</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="home" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl font-bold text-gray-800 mb-6">
+                Trao quà – Gửi yêu thương 💕
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Khám phá hàng ngàn món quà ý nghĩa, được chọn lọc kỹ càng để gửi gắm tình cảm đến những người bạn yêu thương
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="search-bar max-w-2xl mx-auto rounded-full p-2 shadow-lg mb-12">
+                <div class="flex items-center">
+                    <input type="text" placeholder="Tìm quà cho người bạn yêu thương..." 
+                           class="flex-1 px-6 py-3 bg-transparent outline-none text-gray-700">
+                    <button class="btn-primary text-white px-8 py-3 rounded-full font-medium">
+                        🔍 Tìm kiếm
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">🎯 Gợi ý nhanh</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="bg-red-100 text-red-600 px-6 py-3 rounded-full hover:bg-red-200 transition-colors">
+                        ❤️ Valentine (14/2)
+                    </button>
+                    <button class="bg-pink-100 text-pink-600 px-6 py-3 rounded-full hover:bg-pink-200 transition-colors">
+                        🌸 Ngày Phụ nữ (8/3)
+                    </button>
+                    <button class="bg-purple-100 text-purple-600 px-6 py-3 rounded-full hover:bg-purple-200 transition-colors">
+                        🎂 Sinh nhật
+                    </button>
+                    <button class="bg-green-100 text-green-600 px-6 py-3 rounded-full hover:bg-green-200 transition-colors">
+                        🎅 Giáng sinh
+                    </button>
+                    <button class="bg-yellow-100 text-yellow-600 px-6 py-3 rounded-full hover:bg-yellow-200 transition-colors">
+                        🧧 Tết Nguyên Đán
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale -->
+    <section class="py-12 px-4 bg-gradient-to-r from-pink-50 to-rose-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-2 flash-sale">⚡ Flash Sale</h3>
+                <p class="text-gray-600">Ưu đãi có thời hạn - Nhanh tay kẻo lỡ!</p>
+                <div class="text-red-500 font-bold text-lg mt-2">
+                    ⏰ Còn lại: <span id="countdown">02:45:30</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="product-card rounded-2xl p-6 card-hover">
+                    <div class="relative mb-4">
+                        <div class="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-6xl">
+                            🧸
+                        </div>
+                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-30%</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Gấu bông ôm tim</h4>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-pink-500 font-bold text-lg">299.000đ</span>
+                        <span class="text-gray-400 line-through">429.000đ</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
+                            🛒 Thêm vào giỏ
+                        </button>
+                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Gấu bông ôm tim')">
+                            💝 Tặng ngay
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card rounded-2xl p-6 card-hover">
+                    <div class="relative mb-4">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl flex items-center justify-center text-6xl">
+                            🍫
+                        </div>
+                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-25%</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Hộp chocolate cao cấp</h4>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-pink-500 font-bold text-lg">450.000đ</span>
+                        <span class="text-gray-400 line-through">600.000đ</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
+                            🛒 Thêm vào giỏ
+                        </button>
+                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Hộp chocolate cao cấp')">
+                            💝 Tặng ngay
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card rounded-2xl p-6 card-hover">
+                    <div class="relative mb-4">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center text-6xl">
+                            🌹
+                        </div>
+                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-40%</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Hộp hoa hồng bất tử</h4>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-pink-500 font-bold text-lg">720.000đ</span>
+                        <span class="text-gray-400 line-through">1.200.000đ</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
+                            🛒 Thêm vào giỏ
+                        </button>
+                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Hộp hoa hồng bất tử')">
+                            💝 Tặng ngay
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card rounded-2xl p-6 card-hover">
+                    <div class="relative mb-4">
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center text-6xl">
+                            💍
+                        </div>
+                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-35%</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Vòng tay couple khắc tên</h4>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-pink-500 font-bold text-lg">390.000đ</span>
+                        <span class="text-gray-400 line-through">600.000đ</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
+                            🛒 Thêm vào giỏ
+                        </button>
+                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Vòng tay couple khắc tên')">
+                            💝 Tặng ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories by Occasions -->
+    <section id="occasions" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">🎉 Phân loại theo dịp lễ</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">❤️</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Valentine's Day</h4>
+                    <p class="text-gray-600 mb-4">Quà tặng cho người yêu, hộp hoa, thiệp, gấu bông, chocolate ngọt ngào</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">🎂</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Sinh nhật</h4>
+                    <p class="text-gray-600 mb-4">Quà sinh nhật đặc biệt cho bạn bè, người yêu và gia đình thân yêu</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">🌸</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">20/10 & 8/3</h4>
+                    <p class="text-gray-600 mb-4">Quà tặng phái đẹp: nước hoa, hộp quà handmade, set skincare cao cấp</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">🎅</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Giáng sinh</h4>
+                    <p class="text-gray-600 mb-4">Quà mùa lễ hội, phụ kiện, tất Noel, nến thơm, đồ decor ấm cúng</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">🧧</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Tết & Năm mới</h4>
+                    <p class="text-gray-600 mb-4">Hộp quà Tết, trà cao cấp, bánh kẹo, quà biếu sang trọng</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+
+                <div class="category-card rounded-2xl p-8 card-hover text-center">
+                    <div class="text-6xl mb-4">💍</div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Kỷ niệm</h4>
+                    <p class="text-gray-600 mb-4">Quà tặng cặp đôi, vòng tay, album ảnh, thiệp khắc tên đầy ý nghĩa</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-full">Khám phá ngay</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories by Recipients -->
+    <section id="recipients" class="py-16 px-4 bg-gradient-to-r from-pink-50 to-rose-50">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">🛍️ Phân loại theo đối tượng</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">👔</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Nam</h4>
+                    <p class="text-sm text-gray-600">Ví da, đồng hồ, phụ kiện</p>
+                </div>
+
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">💄</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Nữ</h4>
+                    <p class="text-sm text-gray-600">Trang sức, mỹ phẩm, túi xách</p>
+                </div>
+
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">💘</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Người yêu</h4>
+                    <p class="text-sm text-gray-600">Quà couple, hoa, chocolate</p>
+                </div>
+
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">🎈</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Bạn bè</h4>
+                    <p class="text-sm text-gray-600">Quà vui nhộn, độc đáo</p>
+                </div>
+
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">🎓</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Thầy cô</h4>
+                    <p class="text-sm text-gray-600">Quà tri ân, lịch để bàn</p>
+                </div>
+
+                <div class="category-card rounded-2xl p-6 card-hover text-center">
+                    <div class="text-4xl mb-3">🏡</div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Quà cho Gia đình</h4>
+                    <p class="text-sm text-gray-600">Đồ gia dụng, tranh treo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Suggestions -->
+    <section id="suggestions" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">🌟 Gợi ý quà thông minh</h3>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-4">Tìm quà hoàn hảo trong 3 bước</h4>
+                    <p class="text-gray-600">Trả lời vài câu hỏi đơn giản, chúng tôi sẽ gợi ý những món quà phù hợp nhất</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-3">1. Bạn muốn tặng ai? 👥</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                💕 Người yêu
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                👨‍👩‍👧‍👦 Gia đình
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                👫 Bạn bè
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                👔 Đồng nghiệp
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-3">2. Trong dịp gì? 🎉</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                🎂 Sinh nhật
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                ❤️ Valentine
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                🌸 8/3 - 20/10
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                🎅 Giáng sinh
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                🧧 Tết
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                💍 Kỷ niệm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-3">3. Ngân sách của bạn? 💰</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                Dưới 200k
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                200k - 500k
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                500k - 1tr
+                            </button>
+                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
+                                Trên 1tr
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-6">
+                        <button class="btn-primary text-white px-12 py-4 rounded-full text-lg font-medium">
+                            ✨ Tìm quà hoàn hảo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 px-4 bg-gradient-to-r from-pink-50 to-rose-50">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">📰 Cẩm nang tặng quà</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center text-6xl">
+                        💝
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-gray-800 mb-3">10 món quà ý nghĩa tặng người yêu dịp Valentine</h4>
+                        <p class="text-gray-600 text-sm mb-4">Khám phá những món quà độc đáo và ý nghĩa để làm tan chảy trái tim người ấy...</p>
+                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl">
+                        🎂
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-gray-800 mb-3">Top 5 hộp quà sinh nhật độc đáo và ấn tượng</h4>
+                        <p class="text-gray-600 text-sm mb-4">Những ý tưởng quà sinh nhật sáng tạo sẽ khiến người nhận không thể quên...</p>
+                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
+                        🎁
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-gray-800 mb-3">Cách gói quà đẹp và chuyên nghiệp trong 5 phút</h4>
+                        <p class="text-gray-600 text-sm mb-4">Hướng dẫn chi tiết cách gói quà đẹp mắt với những mẹo đơn giản...</p>
+                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-bold text-pink-400 mb-4">💝 Tiamo</h4>
+                    <p class="text-gray-300 mb-4">Trao quà - Gửi yêu thương</p>
+                    <p class="text-gray-400 text-sm">Nơi kết nối những tình cảm chân thành qua từng món quà ý nghĩa</p>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Liên hệ</h5>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 hello@tiamo.vn</p>
+                        <p>📞 1900 1234</p>
+                        <p>💬 Zalo: 0901234567</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Chính sách</h5>
+                    <div class="space-y-2">
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách đổi trả</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách giao hàng</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Bảo mật thông tin</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Theo dõi chúng tôi</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">📘</a>
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">📷</a>
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">🎵</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Tiamo. Tất cả quyền được bảo lưu. Made with ❤️ in Vietnam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gift Popup Modal -->
+    <div id="giftModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 max-h-full overflow-y-auto">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">💝 Tặng quà ngay</h3>
+                <p id="productName" class="text-gray-600"></p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2">Chọn dịp lễ:</label>
+                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-400 focus:outline-none">
+                        <option>Valentine's Day ❤️</option>
+                        <option>Sinh nhật 🎂</option>
+                        <option>Ngày Phụ nữ 🌸</option>
+                        <option>Giáng sinh 🎅</option>
+                        <option>Tết Nguyên Đán 🧧</option>
+                        <option>Kỷ niệm 💍</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2">Người nhận:</label>
+                    <input type="text" placeholder="Tên người nhận..." 
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-400 focus:outline-none">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2">Lời chúc:</label>
+                    <textarea placeholder="Gửi đến em những lời chúc ngọt ngào nhất..." 
+                              class="w-full p-3 border border-gray-300 rounded-lg h-24 focus:border-pink-400 focus:outline-none"></textarea>
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-500 mb-2">Gợi ý lời chúc:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full hover:bg-pink-200" 
+                                    onclick="setSuggestion('Chúc em luôn xinh đẹp và hạnh phúc! ❤️')">
+                                Chúc mừng sinh nhật
+                            </button>
+                            <button class="text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full hover:bg-pink-200"
+                                    onclick="setSuggestion('Anh yêu em nhiều lắm! 💕')">
+                                Tình yêu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex space-x-4 mt-6">
+                <button onclick="closeGiftModal()" 
+                        class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg hover:bg-gray-300 transition-colors">
+                    Hủy
+                </button>
+                <button class="flex-1 btn-primary text-white py-3 rounded-lg">
+                    💝 Xác nhận tặng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer for flash sale
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (2 * 60 * 60 * 1000) + (45 * 60 * 1000) + (30 * 1000); // 2h 45m 30s from now
+            
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown').innerHTML = 
+                    String(hours).padStart(2, '0') + ':' + 
+                    String(minutes).padStart(2, '0') + ':' + 
+                    String(seconds).padStart(2, '0');
+                
+                if (distance < 0) {
+                    document.getElementById('countdown').innerHTML = "Đã kết thúc";
+                }
+            }, 1000);
+        }
+        
+        // Gift popup functions
+        function showGiftPopup(productName) {
+            document.getElementById('productName').textContent = productName;
+            document.getElementById('giftModal').classList.remove('hidden');
+            document.getElementById('giftModal').classList.add('flex');
+        }
+        
+        function closeGiftModal() {
+            document.getElementById('giftModal').classList.add('hidden');
+            document.getElementById('giftModal').classList.remove('flex');
+        }
+        
+        function setSuggestion(text) {
+            document.querySelector('textarea').value = text;
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize countdown
+        updateCountdown();
+        
+        // Close modal when clicking outside
+        document.getElementById('giftModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c3ecf6a1420651',t:'MTc2MDA3NjMyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
