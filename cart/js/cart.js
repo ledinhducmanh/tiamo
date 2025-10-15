@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const html = Object.entries(cartItems)
-      .map(([id, item], index) => `
+      .map(
+        ([id, item], index) => `
         <div class="p-6 flex items-center space-x-4 border-b border-gray-100">
           <div class="coffee-coaster w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden">
               <img src="../assets/img/${item.id}.webp" class="w-full h-full object-cover" alt="${item.name}">
@@ -47,7 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
           </div>
           <div class="text-right ml-4">
-              <p id="subtotal-${id}" class="font-bold text-gray-900">${(item.price * item.quantity).toLocaleString("vi-VN")}₫</p>
+              <p id="subtotal-${id}" class="font-bold text-gray-900">${(
+                item.price * item.quantity
+              ).toLocaleString("vi-VN")}₫</p>
               <button data-id="${id}" class="btn-remove mt-2 text-red-500 hover:text-red-700 transition-colors">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -55,7 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
               </button>
           </div>
         </div>
-      `)
+      `
+      )
       .join("");
 
     cartContainer.innerHTML = html;
@@ -110,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const shipping = subtotal > 0 ? 15000 : 0;
     const total = subtotal - discount + shipping;
 
-    // Nếu HTML chưa có sẵn thì tránh lỗi
     const get = (id) => document.getElementById(id);
     if (!get("final-total")) return;
 
@@ -128,4 +131,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 🔹 Khởi tạo
   renderCart();
+});
+
+// ✅ Xử lý đặt hàng
+document.getElementById("checkout-btn")?.addEventListener("click", () => {
+  const form = document.getElementById("addressForm");
+  if (!form) {
+    alert("❌ Không tìm thấy form thông tin giao hàng.");
+    return;
+  }
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length === 0) {
+    alert("🛒 Giỏ hàng của bạn đang trống. Hãy thêm ít nhất một món quà trước khi thanh toán!");
+    return;
+  }
+
+  // ✅ Lấy dữ liệu form
+  const fullName = document.getElementById("fullName").value.trim();
+  const gender = document.getElementById("gender").value;
+  const address1 = document.getElementById("address1").value.trim();
+  const city = document.getElementById("city").value;
+  const country = document.getElementById("country").value;
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!fullName || !gender || !address1 || !city || !country || !phone) {
+    alert("⚠️ Vui lòng nhập đầy đủ các thông tin bắt buộc!");
+    return;
+  }
+
+  // ✅ Tính tổng tiền (đã fix)
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const discount = subtotal * 0.05;
+  const shipping = subtotal > 0 ? 15000 : 0;
+  const total_price = subtotal - discount + shipping;
+
+  // ✅ Tạo object khách hàng
+  const customer = {
+    customer_id: `CUST${Date.now()}`,
+    full_name: fullName,
+    gender,
+    phone,
+    address: [address1, document.getElementById("address2").value.trim(), city, country].filter(Boolean).join(", "),
+    wish: document.getElementById("message").value.trim(),
+  };
+
+  // ✅ Tạo đơn hàng hoàn chỉnh
+  const order = {
+    ...customer,
+    subtotal,
+    discount,
+    shipping,
+    total_price,
+    purchase_history: JSON.stringify(cart),
+    date_created: new Date().toLocaleString("vi-VN"),
+  };
+
+  // ✅ Gửi dữ liệu đến Google Sheet
+  fetch("https://script.google.com/macros/s/AKfycbzlnw9uEsqWhaJitRhnSY08NiqHa-aEOYSY3s5ewI0V9E5jSNG-GT0p15H0ErKVzewD/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(order),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.text())
+    .then(() => {
+      const orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(order);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.removeItem("cart");
+
+      alert("🎉 Đặt hàng thành công! Cảm ơn bạn đã chọn Tiamo 💝");
+      console.log("✅ Order sent:", order);
+    })
+    .catch((err) => {
+      console.error("❌ Lỗi khi gửi dữ liệu:", err);
+      alert("⚠️ Gửi dữ liệu thất bại, vui lòng thử lại sau!");
+    });
 });
