@@ -1,8 +1,17 @@
+@import "tailwindcss";
 body {
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-
+@font-face {
+  font-family: hangOutFont;
+  src: url(../font/DFVN-Hangout-Regular.otf);
+}
+.logo {
+    font-family: 'hangOutFont', sans-serif !important;
+    user-select: none;
+    font-size: 32px !important;
+}
 .gradient-bg {
     background: linear-gradient(135deg, #fef7f0 0%, #fdf2f8 50%, #fffbeb 100%);
 }
@@ -15,7 +24,6 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(251, 207, 232, 0.3);
 }
-
 .btn-primary {
     background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
     transition: all 0.3s ease;

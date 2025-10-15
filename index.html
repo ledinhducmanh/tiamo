@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiamo - Trao quà, Gửi yêu thương</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="O4MQXQOdgrzSnRr3GpjuB";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </head>
 <body class="gradient-bg min-h-full">
     <!-- Header -->
@@ -14,18 +20,41 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-pink-500">💝 Tiamo</h1>
+                    <a href="/">
+                        <h1 class="logo text-2xl font-bold text-pink-500">tiamo</h1>
+                    </a>
                 </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
-                    <a href="#occasions" class="text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
-                    <a href="#recipients" class="text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
-                    <a href="#suggestions" class="text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
-                    <a href="#blog" class="text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
+                <nav class="hidden md:flex space-x">
+                    <a href="#home" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
+                    <a href="#occasions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
+                    <a href="#recipients" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
+                    <a href="#suggestions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
+                    <a href="#blog" class=" mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
                 </nav>
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-700 hover:text-pink-500">🛒 <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1 ml-1">3</span></button>
-                    <button class="text-gray-700 hover:text-pink-500">❤️</button>
+                <div class="flex items-center space-x-4 ml-11">
+                    <a href="/cart/" class="text-white">
+                    <!-- Cart with BIGGER badge -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-label="Shopping cart with items" style="--icon-color: #111; --badge-color: #ec4899; --badge-text: #fff;">
+                    <title>Shopping cart with items</title>
+
+                    <!-- cart (outline) -->
+                    <g fill="none" stroke="var(--icon-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 8h3l3.2 18A2.6 2.6 0 0 0 12.8 30h14a1 1 0 0 0 .97-.76L33 12H9"></path>
+                        <circle cx="15" cy="34" r="2" fill="var(--icon-color)"></circle>
+                        <circle cx="27" cy="34" r="2" fill="var(--icon-color)"></circle>
+                    </g>
+
+                    <!-- BIGGER badge -->
+                    <circle cx="30" cy="8" r="8" fill="var(--badge-color)"></circle>
+                    <!-- <text x="30" y="8" 
+                            font-family="Arial, Helvetica, sans-serif" 
+                            font-size="10.5" 
+                            text-anchor="middle" 
+                            dominant-baseline="middle" 
+                            fill="var(--badge-text)" 
+                            font-weight="700">0</text> -->
+                    </svg>
+                </a>
                 </div>
             </div>
         </div>
@@ -34,7 +63,7 @@
     <!-- Hero Banner -->
     <section id="home" class="py-16 px-4">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-5xl font-bold text-gray-800 mb-6">
+            <h2 class="text-5xl font-bold text-gray-800 mb-6 mt-6">
                 Trao quà – Gửi yêu thương 💕
             </h2>
             <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -87,97 +116,89 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="product-card rounded-2xl p-6 card-hover">
-                    <div class="relative mb-4">
-                        <div class="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-6xl">
-                            🧸
+            <div id="flash-sale-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Dữ liệu API sẽ được render tại đây -->
+                 
+                <div role="status" class="max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
+                    </div>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
-                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-30%</span>
                     </div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Gấu bông ôm tim</h4>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="text-pink-500 font-bold text-lg">299.000đ</span>
-                        <span class="text-gray-400 line-through">429.000đ</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
-                            🛒 Thêm vào giỏ
-                        </button>
-                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Gấu bông ôm tim')">
-                            💝 Tặng ngay
-                        </button>
-                    </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-
-                <div class="product-card rounded-2xl p-6 card-hover">
-                    <div class="relative mb-4">
-                        <div class="w-full h-48 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl flex items-center justify-center text-6xl">
-                            🍫
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
+                    </div>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
-                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-25%</span>
                     </div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Hộp chocolate cao cấp</h4>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="text-pink-500 font-bold text-lg">450.000đ</span>
-                        <span class="text-gray-400 line-through">600.000đ</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
-                            🛒 Thêm vào giỏ
-                        </button>
-                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Hộp chocolate cao cấp')">
-                            💝 Tặng ngay
-                        </button>
-                    </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-
-                <div class="product-card rounded-2xl p-6 card-hover">
-                    <div class="relative mb-4">
-                        <div class="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center text-6xl">
-                            🌹
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
+                    </div>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
-                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-40%</span>
                     </div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Hộp hoa hồng bất tử</h4>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="text-pink-500 font-bold text-lg">720.000đ</span>
-                        <span class="text-gray-400 line-through">1.200.000đ</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
-                            🛒 Thêm vào giỏ
-                        </button>
-                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Hộp hoa hồng bất tử')">
-                            💝 Tặng ngay
-                        </button>
-                    </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-
-                <div class="product-card rounded-2xl p-6 card-hover">
-                    <div class="relative mb-4">
-                        <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center text-6xl">
-                            💍
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
+                    </div>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
-                        <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-35%</span>
                     </div>
-                    <h4 class="font-semibold text-gray-800 mb-2">Vòng tay couple khắc tên</h4>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="text-pink-500 font-bold text-lg">390.000đ</span>
-                        <span class="text-gray-400 line-through">600.000đ</span>
-                    </div>
-                    <div class="flex space-x-2">
-                        <button class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors">
-                            🛒 Thêm vào giỏ
-                        </button>
-                        <button class="flex-1 btn-primary text-white py-2 rounded-lg" onclick="showGiftPopup('Vòng tay couple khắc tên')">
-                            💝 Tặng ngay
-                        </button>
-                    </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Categories by Occasions -->
     <section id="occasions" class="py-16 px-4">
@@ -398,14 +419,17 @@
             </div>
         </div>
     </section>
+    <!-- NOTIFICATION ADDED CART -->
+    <div id="toast"
+    class="fixed bottom-6 right-6 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50">
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h4 class="text-2xl font-bold text-pink-400 mb-4">💝 Tiamo</h4>
-                    <p class="text-gray-300 mb-4">Trao quà - Gửi yêu thương</p>
+                    <img src="./assets/img/favicon.png" class="select-none pointer-events-none pt-8 pb-8 h-48">
                     <p class="text-gray-400 text-sm">Nơi kết nối những tình cảm chân thành qua từng món quà ý nghĩa</p>
                 </div>
                 
@@ -442,66 +466,12 @@
             </div>
         </div>
     </footer>
-
-    <!-- Gift Popup Modal -->
-    <div id="giftModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 max-h-full overflow-y-auto">
-            <div class="text-center mb-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">💝 Tặng quà ngay</h3>
-                <p id="productName" class="text-gray-600"></p>
-            </div>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-gray-700 font-medium mb-2">Chọn dịp lễ:</label>
-                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-400 focus:outline-none">
-                        <option>Valentine's Day ❤️</option>
-                        <option>Sinh nhật 🎂</option>
-                        <option>Ngày Phụ nữ 🌸</option>
-                        <option>Giáng sinh 🎅</option>
-                        <option>Tết Nguyên Đán 🧧</option>
-                        <option>Kỷ niệm 💍</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-700 font-medium mb-2">Người nhận:</label>
-                    <input type="text" placeholder="Tên người nhận..." 
-                           class="w-full p-3 border border-gray-300 rounded-lg focus:border-pink-400 focus:outline-none">
-                </div>
-                
-                <div>
-                    <label class="block text-gray-700 font-medium mb-2">Lời chúc:</label>
-                    <textarea placeholder="Gửi đến em những lời chúc ngọt ngào nhất..." 
-                              class="w-full p-3 border border-gray-300 rounded-lg h-24 focus:border-pink-400 focus:outline-none"></textarea>
-                    <div class="mt-2">
-                        <p class="text-sm text-gray-500 mb-2">Gợi ý lời chúc:</p>
-                        <div class="flex flex-wrap gap-2">
-                            <button class="text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full hover:bg-pink-200" 
-                                    onclick="setSuggestion('Chúc em luôn xinh đẹp và hạnh phúc! ❤️')">
-                                Chúc mừng sinh nhật
-                            </button>
-                            <button class="text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full hover:bg-pink-200"
-                                    onclick="setSuggestion('Anh yêu em nhiều lắm! 💕')">
-                                Tình yêu
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex space-x-4 mt-6">
-                <button onclick="closeGiftModal()" 
-                        class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg hover:bg-gray-300 transition-colors">
-                    Hủy
-                </button>
-                <button class="flex-1 btn-primary text-white py-3 rounded-lg">
-                    💝 Xác nhận tặng
-                </button>
-            </div>
-        </div>
-    </div>
-
+    <!-- <iframe
+        src="https://www.chatbase.co/chatbot-iframe/O4MQXQOdgrzSnRr3GpjuB"
+        width="100%"
+        style="height: 100%; min-height: 700px"
+        frameborder="0"
+    ></iframe> -->
     <script>
         // Countdown timer for flash sale
         function updateCountdown() {
@@ -526,23 +496,6 @@
                 }
             }, 1000);
         }
-        
-        // Gift popup functions
-        function showGiftPopup(productName) {
-            document.getElementById('productName').textContent = productName;
-            document.getElementById('giftModal').classList.remove('hidden');
-            document.getElementById('giftModal').classList.add('flex');
-        }
-        
-        function closeGiftModal() {
-            document.getElementById('giftModal').classList.add('hidden');
-            document.getElementById('giftModal').classList.remove('flex');
-        }
-        
-        function setSuggestion(text) {
-            document.querySelector('textarea').value = text;
-        }
-        
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -559,13 +512,6 @@
         
         // Initialize countdown
         updateCountdown();
-        
-        // Close modal when clicking outside
-        document.getElementById('giftModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeGiftModal();
-            }
-        });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c3ecf6a1420651',t:'MTc2MDA3NjMyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

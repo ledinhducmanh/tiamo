@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiamo - Trao quà, Gửi yêu thương</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/cart.js"></script>
+</head>
+<body class="gradient-bg min-h-full">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/">
+                        <h1 class="logo text-2xl font-bold text-pink-500">tiamo</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto bg-white py-12 p-6">
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-pink-600 mb-2">Giỏ quà của bạn 🎁</h1>
+            <p class="text-gray-600">Tiamo – Gợi ý quà tặng tinh tế cho mọi dịp đặc biệt</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2">
+            <div class="bg-white rounded-lg shadow-sm border border-pink-100 overflow-hidden">
+                <!-- Cart Header -->
+                <div class="bg-pink-50 px-6 py-4 border-b border-pink-100">
+                <h2 class="text-lg font-semibold text-gray-900">Món quà bạn vừa chọn</h2>
+                </div>
+                
+                <!-- Cart Items List -->
+                <div id="cart-container" class="divide-y divide-gray-100">
+                <!-- Nội dung giỏ hàng sẽ được JS thêm vào -->
+                </div>
+            </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="lg:col-span-1">
+            <div class="bg-white rounded-lg shadow-sm border border-pink-100 p-6 sticky top-8">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Tóm tắt đơn hàng</h2>
+                
+                <div class="space-y-3 mb-6">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Món quà (<span id="total-items">0</span>)</span>
+                    <span id="items-subtotal" class="font-medium">0₫</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Ưu đãi Tiamo (5%)</span>
+                    <span id="items-discount" class="text-pink-600">-0₫</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Phí gói quà & vận chuyển</span>
+                    <span class="font-medium">15.000₫</span>
+                </div>
+                <div class="border-t border-gray-200 pt-3">
+                    <div class="flex justify-between">
+                    <span class="text-lg font-semibold">Tổng cộng</span>
+                    <span id="final-total" class="text-lg font-bold text-pink-600">15.000₫</span>
+                    </div>
+                </div>
+                </div>
+                
+                <button onclick="proceedToCheckout()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-4">
+                Tiến hành thanh toán
+                </button>
+                
+                <div class="text-center">
+                <p class="text-sm text-gray-500">🎀 Miễn phí gói quà & thiệp chúc</p>
+                <p class="text-sm text-gray-500">💌 Tiamo – gửi yêu thương trọn vẹn</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Shipping Address Form -->
+        <div class="mt-12 bg-white rounded-lg shadow-sm border border-pink-100 p-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">🏠 Địa chỉ giao hàng</h2>
+            <form id="addressForm" onsubmit="submitAddress(event)" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2">
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Họ và tên *</label>
+                    <input type="text" id="fullName" name="fullName" required 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="Nhập họ và tên của bạn">
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label for="address1" class="block text-sm font-medium text-gray-700 mb-2">Địa chỉ đường phố *</label>
+                    <input type="text" id="address1" name="address1" required 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="123 Đường Lê Lợi">
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label for="address2" class="block text-sm font-medium text-gray-700 mb-2">Căn hộ, Tầng, Phòng (Không bắt buộc)</label>
+                    <input type="text" id="address2" name="address2" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="Căn hộ 4B, Tầng 2, v.v.">
+                </div>
+                <div>
+                    <!-- Nhúng thư viện Select2 -->
+                    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+                    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+                    <style>
+                        .select2-container--default .select2-selection--single {
+                        height: 48px; /* chỉnh chiều cao */
+                        border-radius: 8px; /* bo góc */
+                        border: 1px solid #d1d5db; /* màu border xám giống Tailwind */
+                        padding: 10px 8px; /* padding bên trong */
+                        }
+
+                        .select2-container--default .select2-selection--single .select2-selection__rendered {
+                        color: #374151; /* text-gray-700 */
+                        font-size: 16px;
+                        }
+
+                        .select2-container--default .select2-selection--single .select2-selection__arrow {
+                        height: 100%;
+                        right: 10px;
+                        }
+                    </style>
+                    <label for="city" class="block text-sm font-medium text-gray-700 mb-2">Tỉnh/Thành phố *</label>
+                    <select id="city" name="city" required>
+                        <option value="">Chọn Tỉnh/Thành phố</option>
+                        <option value="hanoi">Hà Nội</option>
+                        <option value="hochiminh">TP. Hồ Chí Minh</option>
+                        <option value="haiphong">Hải Phòng</option>
+                        <option value="danang">Đà Nẵng</option>
+                        <option value="cantho">Cần Thơ</option>
+                        <option value="angiang">An Giang</option>
+                        <option value="bacgiang">Bắc Giang</option>
+                        <option value="backan">Bắc Kạn</option>
+                        <option value="baclieu">Bạc Liêu</option>
+                        <option value="bacninh">Bắc Ninh</option>
+                        <option value="bentre">Bến Tre</option>
+                        <option value="binhdinh">Bình Định</option>
+                        <option value="binhduong">Bình Dương</option>
+                        <option value="binhphuoc">Bình Phước</option>
+                        <option value="binhthuan">Bình Thuận</option>
+                        <option value="camau">Cà Mau</option>
+                        <option value="caobang">Cao Bằng</option>
+                        <option value="daklak">Đắk Lắk</option>
+                        <option value="daknong">Đắk Nông</option>
+                        <option value="dienbien">Điện Biên</option>
+                        <option value="dongnai">Đồng Nai</option>
+                        <option value="dongthap">Đồng Tháp</option>
+                        <option value="gialai">Gia Lai</option>
+                        <option value="hagiang">Hà Giang</option>
+                        <option value="hatinh">Hà Tĩnh</option>
+                        <option value="haiduong">Hải Dương</option>
+                        <option value="haugiang">Hậu Giang</option>
+                        <option value="hoabinh">Hòa Bình</option>
+                        <option value="hungyen">Hưng Yên</option>
+                        <option value="khanhhoa">Khánh Hòa</option>
+                        <option value="kiengiang">Kiên Giang</option>
+                        <option value="kontum">Kon Tum</option>
+                        <option value="laichau">Lai Châu</option>
+                        <option value="lamdong">Lâm Đồng</option>
+                        <option value="langson">Lạng Sơn</option>
+                        <option value="laocai">Lào Cai</option>
+                        <option value="longan">Long An</option>
+                        <option value="namdinh">Nam Định</option>
+                        <option value="nghean">Nghệ An</option>
+                        <option value="ninhbinh">Ninh Bình</option>
+                        <option value="ninhthuan">Ninh Thuận</option>
+                        <option value="phutho">Phú Thọ</option>
+                        <option value="phuyen">Phú Yên</option>
+                        <option value="quangbinh">Quảng Bình</option>
+                        <option value="quangnam">Quảng Nam</option>
+                        <option value="quangngai">Quảng Ngãi</option>
+                        <option value="quangninh">Quảng Ninh</option>
+                        <option value="quangtri">Quảng Trị</option>
+                        <option value="soctrang">Sóc Trăng</option>
+                        <option value="sonla">Sơn La</option>
+                        <option value="tayninh">Tây Ninh</option>
+                        <option value="thaibinh">Thái Bình</option>
+                        <option value="thainguyen">Thái Nguyên</option>
+                        <option value="thanhhoa">Thanh Hóa</option>
+                        <option value="thuathienhue">Thừa Thiên Huế</option>
+                        <option value="tiengiang">Tiền Giang</option>
+                        <option value="travinh">Trà Vinh</option>
+                        <option value="tuyenquang">Tuyên Quang</option>
+                        <option value="vinhlong">Vĩnh Long</option>
+                        <option value="vinhphuc">Vĩnh Phúc</option>
+                        <option value="yenbai">Yên Bái</option>
+                        <option value="other">Khác</option>
+                    </select>
+
+                    <script>
+                    $(document).ready(function() {
+                        $('#city').select2({
+                        placeholder: "Chọn Tỉnh/Thành phố",
+                        allowClear: true,
+                        width: '100%' // đảm bảo full width giống Tailwind
+                        });
+                    });
+                    </script>
+
+                </div>
+                <div>
+                    <label for="country" class="block text-sm font-medium text-gray-700 mb-2">Quốc gia *</label>
+                    <select id="country" name="country" required 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors">
+                        <option value="">Chọn Quốc gia</option>
+                        <option value="VN">Việt Nam</option>
+                    </select>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="(+84) 912 345 678">
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Ghi lời chúc hoặc yêu cầu</label>
+                    <input type="text" id="message" name="message" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="Chúc mừng ...">
+                </div>
+                
+                <div class="md:col-span-2">
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Ghi lời chúc</label>
+                    <textarea id="message" name="message" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors"
+                        placeholder="Chúc mừng ..."
+                        rows="4"></textarea>
+                </div>
+            </form>
+        </div>
+        <!-- Gift Recommendations -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">🎁 Gợi ý quà tương tự</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg shadow-sm border border-pink-100 overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
+                <img src="../assets/img/gift1.jpg" class="w-full h-56 object-cover">
+                <div class="p-4">
+                <h3 class="font-semibold text-gray-900">Hộp quà “For Her” – Nến thơm & Chocolate</h3>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="font-bold text-pink-600">249.000₫</span>
+                    <button class="bg-pink-100 hover:bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm transition-colors">
+                    Thêm vào giỏ
+                    </button>
+                </div>
+                </div>
+            </div>
+            <!-- Các gợi ý khác... -->
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="../assets/img/favicon.png" class="select-none pointer-events-none pt-8 pb-8 h-48">
+                    <p class="text-gray-400 text-sm">Nơi kết nối những tình cảm chân thành qua từng món quà ý nghĩa</p>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Liên hệ</h5>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 hello@tiamo.vn</p>
+                        <p>📞 1900 1234</p>
+                        <p>💬 Zalo: 0901234567</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Chính sách</h5>
+                    <div class="space-y-2">
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách đổi trả</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách giao hàng</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Bảo mật thông tin</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Theo dõi chúng tôi</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">📘</a>
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">📷</a>
+                        <a href="#" class="text-2xl hover:text-pink-400 transition-colors">🎵</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Tiamo. Tất cả quyền được bảo lưu. Made with ❤️ in Vietnam</p>
+            </div>
+        </div>
+    </footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c3ecf6a1420651',t:'MTc2MDA3NjMyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
