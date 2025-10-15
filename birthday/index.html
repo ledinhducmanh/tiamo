@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiamo - Trao quà, Gửi yêu thương</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="O4MQXQOdgrzSnRr3GpjuB";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body {box-sizing: border-box;}.font-script {font-family: 'Dancing Script', cursive;}.font-main {font-family: 'Inter', sans-serif;}.confetti {position: absolute;width: 8px;height: 8px;border-radius: 50%;animation: float 6s ease-in-out infinite;}.confetti:nth-child(1) { background: #FFB6C1; top: 10%; left: 10%; animation-delay: 0s; }.confetti:nth-child(2) { background: #FF7F7F; top: 20%; left: 80%; animation-delay: 1s; }.confetti:nth-child(3) { background: #87CEEB; top: 30%; left: 60%; animation-delay: 2s; }.confetti:nth-child(4) { background: #98FB98; top: 60%; left: 20%; animation-delay: 3s; }.confetti:nth-child(5) { background: #DDA0DD; top: 70%; left: 90%; animation-delay: 4s; }.confetti:nth-child(6) { background: #F0E68C; top: 80%; left: 40%; animation-delay: 5s; }@keyframes float {0%, 100% { transform: translateY(0px) rotate(0deg); }50% { transform: translateY(-20px) rotate(180deg); }}.balloon {position: absolute;animation: sway 4s ease-in-out infinite;}@keyframes sway {0%, 100% { transform: translateX(0px); }50% { transform: translateX(10px); }}.gradient-bg {background: linear-gradient(135deg, #E6F3FF 0%, #F0F8FF 50%, #E0F6FF 100%);}.card-hover {transition: all 0.3s ease;}.card-hover:hover {transform: translateY(-5px);box-shadow: 0 20px 40px rgba(0,0,0,0.1);}.btn-primary {background: linear-gradient(135deg, #FF7F7F 0%, #FFB6C1 100%);transition: all 0.3s ease;}.btn-primary:hover {background: linear-gradient(135deg, #FF6B6B 0%, #FFA0A0 100%);transform: translateY(-2px);}</style>
+</head>
+<body class="font-main gradient-bg min-h-full">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/">
+                        <h1 class="logo text-2xl font-bold text-pink-500">tiamo</h1>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x">
+                    <a href="#home" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
+                    <a href="#occasions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
+                    <a href="#recipients" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
+                    <a href="#suggestions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
+                    <a href="#blog" class=" mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
+                </nav>
+                <div class="flex items-center space-x-4 ml-11">
+                    <a href="/cart/" class="text-white">
+                    <!-- Cart with BIGGER badge -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" role="img" aria-label="Shopping cart with items" style="--icon-color: #111; --badge-color: #ec4899; --badge-text: #fff;">
+                    <title>Shopping cart with items</title>
+
+                    <!-- cart (outline) -->
+                    <g fill="none" stroke="var(--icon-color)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 8h3l3.2 18A2.6 2.6 0 0 0 12.8 30h14a1 1 0 0 0 .97-.76L33 12H9"></path>
+                        <circle cx="15" cy="34" r="2" fill="var(--icon-color)"></circle>
+                        <circle cx="27" cy="34" r="2" fill="var(--icon-color)"></circle>
+                    </g>
+
+                    <!-- BIGGER badge -->
+                    <circle cx="30" cy="8" r="8" fill="var(--badge-color)"></circle>
+                    </svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative py-20 overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        
+        <!-- Balloons -->
+        <div class="balloon" style="top: 10%; right: 10%;">
+            <svg width="40" height="60" viewBox="0 0 40 60" fill="none">
+                <ellipse cx="20" cy="20" rx="18" ry="25" fill="#FFB6C1"/>
+                <line x1="20" y1="45" x2="20" y2="60" stroke="#8B4513" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="balloon" style="top: 15%; left: 5%; animation-delay: 2s;">
+            <svg width="35" height="55" viewBox="0 0 35 55" fill="none">
+                <ellipse cx="17.5" cy="17.5" rx="15" ry="22" fill="#87CEEB"/>
+                <line x1="17.5" y1="40" x2="17.5" y2="55" stroke="#8B4513" stroke-width="2"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="font-script text-6xl md:text-8xl font-bold text-pink-400 mb-6">
+                    Sinh Nhật Ngọt Ngào! 🎉
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Khám phá bộ sưu tập quà tặng sinh nhật độc đáo, từ những món quà dễ thương cho bé đến những ý tưởng sáng tạo cho người lớn
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                        🎁 Khám phá ngay
+                    </button>
+                    <button class="border-2 border-pink-300 text-pink-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-pink-50 transition-colors">
+                        📞 Tư vấn miễn phí
+                    </button>
+                </div>
+                
+                <!-- Special Offer Banner -->
+                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto shadow-lg border border-pink-100">
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="text-4xl">🎊</div>
+                        <div>
+                            <h3 class="font-script text-2xl font-bold text-coral-500">Ưu đãi đặc biệt!</h3>
+                            <p class="text-gray-600">Giảm 20% cho đơn hàng đầu tiên + Miễn phí gói quà</p>
+                        </div>
+                        <div class="text-4xl">🎊</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section id="products" class="py-20 bg-white/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-script text-5xl font-bold text-pink-400 mb-4">Danh Mục Sản Phẩm</h2>
+                <p class="text-xl text-gray-600">Tìm món quà hoàn hảo cho mọi lứa tuổi</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kids Category -->
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border border-pink-100 text-center relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-2xl">🎈</div>
+                    <div class="text-6xl mb-6">🧸</div>
+                    <h3 class="font-script text-3xl font-bold text-pink-400 mb-4">Quà Cho Bé</h3>
+                    <p class="text-gray-600 mb-6">Đồ chơi, sách tranh, quần áo dễ thương và những món quà an toàn cho trẻ em</p>
+                    <ul class="text-left text-gray-600 mb-6 space-y-2">
+                        <li>🧩 Đồ chơi giáo dục</li>
+                        <li>📚 Sách tranh màu sắc</li>
+                        <li>👕 Quần áo xinh xắn</li>
+                        <li>🎨 Bộ dụng cụ vẽ</li>
+                    </ul>
+                    <button class="w-full bg-pink-100 text-pink-600 py-3 rounded-full font-semibold hover:bg-pink-200 transition-colors">
+                        Xem thêm 👶
+                    </button>
+                </div>
+                
+                <!-- Adults Category -->
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-2xl">✨</div>
+                    <div class="text-6xl mb-6">🎁</div>
+                    <h3 class="font-script text-3xl font-bold text-blue-400 mb-4">Quà Cho Người Lớn</h3>
+                    <p class="text-gray-600 mb-6">Phụ kiện thời trang, mỹ phẩm, đồ gia dụng và những món quà ý nghĩa</p>
+                    <ul class="text-left text-gray-600 mb-6 space-y-2">
+                        <li>💄 Mỹ phẩm cao cấp</li>
+                        <li>👜 Phụ kiện thời trang</li>
+                        <li>🕯️ Nến thơm thư giãn</li>
+                        <li>📱 Phụ kiện công nghệ</li>
+                    </ul>
+                    <button class="w-full bg-blue-100 text-blue-600 py-3 rounded-full font-semibold hover:bg-blue-200 transition-colors">
+                        Khám phá 🌟
+                    </button>
+                </div>
+                
+                <!-- DIY Category -->
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg border border-green-100 text-center relative overflow-hidden">
+                    <div class="absolute top-4 right-4 text-2xl">🎨</div>
+                    <div class="text-6xl mb-6">✂️</div>
+                    <h3 class="font-script text-3xl font-bold text-green-400 mb-4">Quà Tự Làm</h3>
+                    <p class="text-gray-600 mb-6">Bộ kit DIY, nguyên liệu thủ công và hướng dẫn tạo quà handmade</p>
+                    <ul class="text-left text-gray-600 mb-6 space-y-2">
+                        <li>🧶 Kit đan len cơ bản</li>
+                        <li>🎭 Bộ làm mặt nạ</li>
+                        <li>🍪 Kit làm bánh tại nhà</li>
+                        <li>🌸 Nguyên liệu làm hoa</li>
+                    </ul>
+                    <button class="w-full bg-green-100 text-green-600 py-3 rounded-full font-semibold hover:bg-green-200 transition-colors">
+                        Sáng tạo 🎪
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section id="bestsellers" class="py-20 relative">
+        <div class="absolute top-10 left-10">
+            <div class="text-4xl animate-bounce">🧁</div>
+        </div>
+        <div class="absolute top-20 right-20">
+            <div class="text-3xl animate-pulse">🎂</div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-script text-5xl font-bold text-coral-500 mb-4">Sản Phẩm Bán Chạy</h2>
+                <p class="text-xl text-gray-600">Những món quà được yêu thích nhất</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-pink-100">
+                    <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+                        <div class="text-6xl">🧸</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Gấu Bông Sinh Nhật</h3>
+                        <p class="text-gray-600 text-sm mb-4">Gấu bông mềm mại với nón sinh nhật đáng yêu</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-coral-500 font-bold text-xl">299.000đ</span>
+                            <button class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-200 transition-colors">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-blue-100">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <div class="text-6xl">💄</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Set Mỹ Phẩm Mini</h3>
+                        <p class="text-gray-600 text-sm mb-4">Bộ son và phấn mắt tông màu pastel</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-coral-500 font-bold text-xl">450.000đ</span>
+                            <button class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-200 transition-colors">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-green-100">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <div class="text-6xl">🎨</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Kit Vẽ Tranh DIY</h3>
+                        <p class="text-gray-600 text-sm mb-4">Bộ vẽ tranh theo số với khung tranh</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-coral-500 font-bold text-xl">180.000đ</span>
+                            <button class="bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-200 transition-colors">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-purple-100">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                        <div class="text-6xl">🎁</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Hộp Quà Bất Ngờ</h3>
+                        <p class="text-gray-600 text-sm mb-4">Hộp quà mystery với nhiều món đồ thú vị</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-coral-500 font-bold text-xl">350.000đ</span>
+                            <button class="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-200 transition-colors">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    Xem tất cả sản phẩm 🛍️
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-white/70">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white rounded-3xl p-8 shadow-lg border border-pink-100 relative overflow-hidden">
+                <div class="absolute top-4 left-4 text-2xl">🎉</div>
+                <div class="absolute bottom-4 right-4 text-2xl">🎈</div>
+                
+                <h2 class="font-script text-4xl font-bold text-pink-400 mb-4">Đăng Ký Nhận Ưu Đãi</h2>
+                <p class="text-gray-600 mb-8">Nhận thông tin về sản phẩm mới và các chương trình khuyến mãi đặc biệt</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleNewsletterSubmit(event)">
+                    <input 
+                        type="email" 
+                        placeholder="Nhập email của bạn..." 
+                        class="flex-1 px-4 py-3 rounded-full border border-pink-200 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100"
+                        required
+                    >
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-full font-semibold whitespace-nowrap">
+                        Đăng ký 💌
+                    </button>
+                </form>
+                
+                <div id="newsletter-message" class="mt-4 text-sm hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="text-3xl">🎂</div>
+                        <h3 class="font-script text-2xl font-bold text-pink-400">Sweet Birthday</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Mang đến những món quà sinh nhật ngọt ngào và ý nghĩa cho mọi người.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">📘</a>
+                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">📷</a>
+                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">🐦</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Sản phẩm</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà cho bé</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà cho người lớn</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà tự làm</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Phụ kiện trang trí</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Hỗ trợ</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Chính sách đổi trả</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">Vận chuyển</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-4">Liên hệ</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>📞 0123 456 789</li>
+                        <li>📧 hello@sweetbirthday.vn</li>
+                        <li>📍 123 Đường ABC, Quận 1, TP.HCM</li>
+                        <li>🕒 8:00 - 22:00 (T2-CN)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-600">
+                <p>&copy; 2024 Sweet Birthday. Tất cả quyền được bảo lưu. 🎈</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const messageDiv = document.getElementById('newsletter-message');
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            messageDiv.className = 'mt-4 text-sm text-green-600';
+            messageDiv.textContent = `Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi ưu đãi đến ${email} sớm nhất. 🎉`;
+            messageDiv.classList.remove('hidden');
+            
+            event.target.reset();
+            
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('button:contains("Thêm vào giỏ")').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.closest('.card-hover').querySelector('h3').textContent;
+                
+                // Create a temporary success message
+                const successMsg = document.createElement('div');
+                successMsg.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+                successMsg.textContent = `Đã thêm "${productName}" vào giỏ hàng! 🛒`;
+                document.body.appendChild(successMsg);
+                
+                // Animate in
+                setTimeout(() => {
+                    successMsg.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Animate out and remove
+                setTimeout(() => {
+                    successMsg.style.transform = 'translateX(full)';
+                    setTimeout(() => {
+                        document.body.removeChild(successMsg);
+                    }, 300);
+                }, 3000);
+                
+                // Update cart counter
+                const cartCounter = document.querySelector('.absolute.-top-2.-right-2');
+                if (cartCounter) {
+                    const currentCount = parseInt(cartCounter.textContent);
+                    cartCounter.textContent = currentCount + 1;
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f09fd431ac55de',t:'MTc2MDU0NTAyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
