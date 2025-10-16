@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiamo - Trao quà, Gửi yêu thương</title>
+    <title>Tiamo - Quà Sinh Nhật</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
@@ -26,11 +26,8 @@
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x">
-                    <a href="#home" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
-                    <a href="#occasions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
-                    <a href="#recipients" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
-                    <a href="#suggestions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
-                    <a href="#blog" class=" mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
+                    <a href="#home" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Danh mục sản phẩm</a>
+                    <a href="#bestsellers" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Sản Phẩm Bán Chạy</a>
                 </nav>
                 <div class="flex items-center space-x-4 ml-11">
                     <a href="/cart/" class="text-white">
@@ -126,15 +123,6 @@
                     <div class="text-6xl mb-6">🧸</div>
                     <h3 class="font-script text-3xl font-bold text-pink-400 mb-4">Quà Cho Bé</h3>
                     <p class="text-gray-600 mb-6">Đồ chơi, sách tranh, quần áo dễ thương và những món quà an toàn cho trẻ em</p>
-                    <ul class="text-left text-gray-600 mb-6 space-y-2">
-                        <li>🧩 Đồ chơi giáo dục</li>
-                        <li>📚 Sách tranh màu sắc</li>
-                        <li>👕 Quần áo xinh xắn</li>
-                        <li>🎨 Bộ dụng cụ vẽ</li>
-                    </ul>
-                    <button class="w-full bg-pink-100 text-pink-600 py-3 rounded-full font-semibold hover:bg-pink-200 transition-colors">
-                        Xem thêm 👶
-                    </button>
                 </div>
                 
                 <!-- Adults Category -->
@@ -143,15 +131,6 @@
                     <div class="text-6xl mb-6">🎁</div>
                     <h3 class="font-script text-3xl font-bold text-blue-400 mb-4">Quà Cho Người Lớn</h3>
                     <p class="text-gray-600 mb-6">Phụ kiện thời trang, mỹ phẩm, đồ gia dụng và những món quà ý nghĩa</p>
-                    <ul class="text-left text-gray-600 mb-6 space-y-2">
-                        <li>💄 Mỹ phẩm cao cấp</li>
-                        <li>👜 Phụ kiện thời trang</li>
-                        <li>🕯️ Nến thơm thư giãn</li>
-                        <li>📱 Phụ kiện công nghệ</li>
-                    </ul>
-                    <button class="w-full bg-blue-100 text-blue-600 py-3 rounded-full font-semibold hover:bg-blue-200 transition-colors">
-                        Khám phá 🌟
-                    </button>
                 </div>
                 
                 <!-- DIY Category -->
@@ -160,22 +139,13 @@
                     <div class="text-6xl mb-6">✂️</div>
                     <h3 class="font-script text-3xl font-bold text-green-400 mb-4">Quà Tự Làm</h3>
                     <p class="text-gray-600 mb-6">Bộ kit DIY, nguyên liệu thủ công và hướng dẫn tạo quà handmade</p>
-                    <ul class="text-left text-gray-600 mb-6 space-y-2">
-                        <li>🧶 Kit đan len cơ bản</li>
-                        <li>🎭 Bộ làm mặt nạ</li>
-                        <li>🍪 Kit làm bánh tại nhà</li>
-                        <li>🌸 Nguyên liệu làm hoa</li>
-                    </ul>
-                    <button class="w-full bg-green-100 text-green-600 py-3 rounded-full font-semibold hover:bg-green-200 transition-colors">
-                        Sáng tạo 🎪
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Best Sellers -->
-    <section id="bestsellers" class="py-20 relative">
+        <section id="bestsellers" class="py-20 relative">
         <div class="absolute top-10 left-10">
             <div class="text-4xl animate-bounce">🧁</div>
         </div>
@@ -185,88 +155,102 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-script text-5xl font-bold text-coral-500 mb-4">Sản Phẩm Bán Chạy</h2>
+                <h2 class="font-script text-5xl font-bold text-red-500 mb-4">Sản Phẩm Bán Chạy</h2>
                 <p class="text-xl text-gray-600">Những món quà được yêu thích nhất</p>
             </div>
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Product 1 -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-pink-100">
-                    <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
-                        <div class="text-6xl">🧸</div>
+            <div id="gifts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Dữ liệu API sẽ được render tại đây -->
+                 
+                <div role="status" class="max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Gấu Bông Sinh Nhật</h3>
-                        <p class="text-gray-600 text-sm mb-4">Gấu bông mềm mại với nón sinh nhật đáng yêu</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-coral-500 font-bold text-xl">299.000đ</span>
-                            <button class="bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-200 transition-colors">
-                                Thêm vào giỏ
-                            </button>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
                     </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-                
-                <!-- Product 2 -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-blue-100">
-                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                        <div class="text-6xl">💄</div>
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Set Mỹ Phẩm Mini</h3>
-                        <p class="text-gray-600 text-sm mb-4">Bộ son và phấn mắt tông màu pastel</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-coral-500 font-bold text-xl">450.000đ</span>
-                            <button class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-200 transition-colors">
-                                Thêm vào giỏ
-                            </button>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
                     </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-                
-                <!-- Product 3 -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-green-100">
-                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                        <div class="text-6xl">🎨</div>
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Kit Vẽ Tranh DIY</h3>
-                        <p class="text-gray-600 text-sm mb-4">Bộ vẽ tranh theo số với khung tranh</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-coral-500 font-bold text-xl">180.000đ</span>
-                            <button class="bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-200 transition-colors">
-                                Thêm vào giỏ
-                            </button>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
                     </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
-                
-                <!-- Product 4 -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-purple-100">
-                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-                        <div class="text-6xl">🎁</div>
+                <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-800 mb-2">Hộp Quà Bất Ngờ</h3>
-                        <p class="text-gray-600 text-sm mb-4">Hộp quà mystery với nhiều món đồ thú vị</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-coral-500 font-bold text-xl">350.000đ</span>
-                            <button class="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-200 transition-colors">
-                                Thêm vào giỏ
-                            </button>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                         </div>
                     </div>
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
-                    Xem tất cả sản phẩm 🛍️
+                <button id="showMore" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    Xem thêm sản phẩm 🛍️
                 </button>
             </div>
-        </div>
+        </div>  
     </section>
-
+    <!-- NOTIFICATION ADDED CART -->
+    <div id="toast"
+    class="fixed bottom-6 right-6 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50">
+    </div>
     <!-- Newsletter -->
     <section class="py-16 bg-white/70">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -295,76 +279,53 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
+    <footer class="bg-gray-800 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="text-3xl">🎂</div>
-                        <h3 class="font-script text-2xl font-bold text-pink-400">Sweet Birthday</h3>
+                    <img src="../assets/img/favicon.png" class="select-none pointer-events-none pt-8 pb-8 h-48">
+                    
+                    <p class="text-gray-400 text-sm">Nơi kết nối những tình cảm chân thành qua từng món quà ý nghĩa</p>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Liên hệ</h5>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 ngocdieu8607@gmail.com</p>
+                        <p>💬 Zalo: 0862958110</p>
                     </div>
-                    <p class="text-gray-600 mb-4">Mang đến những món quà sinh nhật ngọt ngào và ý nghĩa cho mọi người.</p>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Chính sách</h5>
+                    <div class="space-y-2">
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách đổi trả</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Chính sách giao hàng</a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400 block">Bảo mật thông tin</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Theo dõi chúng tôi</h5>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">📘</a>
-                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">📷</a>
-                        <a href="#" class="text-pink-400 hover:text-pink-500 transition-colors">🐦</a>
+                        <a href="https://www.facebook.com/people/Tiamo/61582548893661/" class="text-2xl hover:text-pink-400 transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@tiaomo.id.vn" class="text-2xl hover:text-pink-400 transition-colors">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
                     </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-4">Sản phẩm</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà cho bé</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà cho người lớn</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Quà tự làm</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Phụ kiện trang trí</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-4">Hỗ trợ</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Chính sách đổi trả</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">Vận chuyển</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-4">Liên hệ</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>📞 0123 456 789</li>
-                        <li>📧 hello@sweetbirthday.vn</li>
-                        <li>📍 123 Đường ABC, Quận 1, TP.HCM</li>
-                        <li>🕒 8:00 - 22:00 (T2-CN)</li>
-                    </ul>
+                    <img  class="mt-3.5" src="https://visitcountpro.netlify.app/api?id=Tiamo&label=Tiamo%20Visitors&color=12&icon=7&pretty=false" />
                 </div>
             </div>
             
-            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-600">
-                <p>&copy; 2024 Sweet Birthday. Tất cả quyền được bảo lưu. 🎈</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Tiamo. Tất cả quyền được bảo lưu. Made with ❤️ in Vietnam</p>
             </div>
         </div>
     </footer>
-
+    <script src="./main.js"></script>
     <script>
-        function handleNewsletterSubmit(event) {
-            event.preventDefault();
-            const messageDiv = document.getElementById('newsletter-message');
-            const email = event.target.querySelector('input[type="email"]').value;
-            
-            messageDiv.className = 'mt-4 text-sm text-green-600';
-            messageDiv.textContent = `Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi ưu đãi đến ${email} sớm nhất. 🎉`;
-            messageDiv.classList.remove('hidden');
-            
-            event.target.reset();
-            
-            setTimeout(() => {
-                messageDiv.classList.add('hidden');
-            }, 5000);
-        }
-        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -375,39 +336,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                }
-            });
-        });
-        
-        // Add to cart functionality
-        document.querySelectorAll('button:contains("Thêm vào giỏ")').forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.closest('.card-hover').querySelector('h3').textContent;
-                
-                // Create a temporary success message
-                const successMsg = document.createElement('div');
-                successMsg.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
-                successMsg.textContent = `Đã thêm "${productName}" vào giỏ hàng! 🛒`;
-                document.body.appendChild(successMsg);
-                
-                // Animate in
-                setTimeout(() => {
-                    successMsg.style.transform = 'translateX(0)';
-                }, 100);
-                
-                // Animate out and remove
-                setTimeout(() => {
-                    successMsg.style.transform = 'translateX(full)';
-                    setTimeout(() => {
-                        document.body.removeChild(successMsg);
-                    }, 300);
-                }, 3000);
-                
-                // Update cart counter
-                const cartCounter = document.querySelector('.absolute.-top-2.-right-2');
-                if (cartCounter) {
-                    const currentCount = parseInt(cartCounter.textContent);
-                    cartCounter.textContent = currentCount + 1;
                 }
             });
         });

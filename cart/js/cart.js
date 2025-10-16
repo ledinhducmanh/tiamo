@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartContainer = document.getElementById("cart-container");
 
+    console.log(cart)
+
   if (!cartContainer) {
     console.error("❌ Không tìm thấy #cart-container trong DOM");
     return;
@@ -111,7 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalItems = Object.values(cartItems).reduce((sum, i) => sum + i.quantity, 0);
     const subtotal = Object.values(cartItems).reduce((sum, i) => sum + i.price * i.quantity, 0);
     const discount = subtotal * 0.05;
-    const shipping = subtotal > 0 ? 15000 : 0;
+    const shipping = subtotal > 0 ? (subtotal < 500000 ? 50000 : 100000) : 0;
+    const feeElement = document.getElementById("fee")
+    feeElement.innerText = `${shipping.toLocaleString("vi-VN")}₫`;
+    
     const total = subtotal - discount + shipping;
 
     const get = (id) => document.getElementById(id);
@@ -163,7 +168,8 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
   // ✅ Tính tổng tiền (đã fix)
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const discount = subtotal * 0.05;
-  const shipping = subtotal > 0 ? 15000 : 0;
+  const shipping = subtotal > 0 ? (subtotal < 500000 ? 50000 : 100000) : 0;
+  
   const total_price = subtotal - discount + shipping;
 
   // ✅ Tạo object khách hàng
