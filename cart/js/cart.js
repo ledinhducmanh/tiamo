@@ -171,6 +171,7 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
   const shipping = subtotal > 0 ? (subtotal < 500000 ? 50000 : 100000) : 0;
   
   const total_price = subtotal - discount + shipping;
+  
 
   // ✅ Tạo object khách hàng
   const customer = {
@@ -192,7 +193,102 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
     purchase_history: JSON.stringify(cart),
     date_created: new Date().toLocaleString("vi-VN"),
   };
+  // Payment
+  const paymentModal = document.getElementById('paymentModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const saveQrBtn = document.getElementById('saveQrBtn');
+  const shareQrBtn = document.getElementById('shareQrBtn');
+  const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
+  const qrCode = document.getElementById("qr-code");
+  const qrCodePrice = document.getElementById("qr-code-price");
 
+  // Mở modal thanh toán
+  qrCodePrice.innerText = `${order.total_price.toLocaleString("vi-VN")}₫`;
+  paymentModal.classList.remove('hidden');
+  paymentModal.classList.add('flex');
+  qrCode.innerHTML = `<img src='https://qr.sepay.vn/img?acc=0862958110&bank=MBBANK&amount=${order.total_price}&des=${customer.customer_id}'/>`
+  // Đóng modal
+  closeModalBtn.addEventListener('click', function() {
+      paymentModal.classList.add('hidden');
+      paymentModal.classList.remove('flex');
+  });
+
+  // Đóng modal khi click vào backdrop
+  paymentModal.addEventListener('click', function(e) {
+      if (e.target === paymentModal) {
+          paymentModal.classList.add('hidden');
+          paymentModal.classList.remove('flex');
+      }
+  });
+
+  // Xử lý nút lưu QR Code
+  saveQrBtn.addEventListener('click', function() {
+      const svg = document.querySelector('#paymentModal img');
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const data = new XMLSerializer().serializeToString(svg);
+      const img = new Image();
+      
+      canvas.width = 180;
+      canvas.height = 180;
+      
+      img.onload = function() {
+          ctx.drawImage(img, 0, 0);
+          const link = document.createElement('a');
+          link.download = 'qr-thanh-toan.png';
+          link.href = canvas.toDataURL();
+          link.click();
+      };
+      
+      img.src = 'data:image/svg+xml;base64,' + btoa(data);
+  });
+
+  // Xử lý nút chia sẻ
+  shareQrBtn.addEventListener('click', function() {
+      if (navigator.share) {
+          navigator.share({
+              title: 'QR Code Thanh Toán',
+              text: 'Quét mã QR để thanh toán đơn hàng',
+              url: window.location.href
+          });
+      } else {
+          const url = window.location.href;
+          navigator.clipboard.writeText(url).then(() => {
+              const originalText = shareQrBtn.innerHTML;
+              shareQrBtn.innerHTML = '✅ Đã sao chép link!';
+              shareQrBtn.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
+              shareQrBtn.classList.remove('bg-pink-50', 'text-pink-600', 'border-pink-200');
+              
+              setTimeout(() => {
+                  shareQrBtn.innerHTML = originalText;
+                  shareQrBtn.classList.remove('bg-green-50', 'text-green-600', 'border-green-200');
+                  shareQrBtn.classList.add('bg-pink-50', 'text-pink-600', 'border-pink-200');
+              }, 2000);
+          });
+      }
+  });
+
+  // Xử lý xác nhận thanh toán
+  confirmPaymentBtn.addEventListener('click', function() {
+      const originalText = confirmPaymentBtn.innerHTML;
+      confirmPaymentBtn.innerHTML = '⏳ Đang xử lý...';
+      confirmPaymentBtn.disabled = true;
+      
+      setTimeout(() => {
+          confirmPaymentBtn.innerHTML = '✅ Thanh toán thành công!';
+          confirmPaymentBtn.classList.remove('pink-gradient');
+          confirmPaymentBtn.classList.add('bg-green-500');
+          
+          setTimeout(() => {
+              paymentModal.classList.add('hidden');
+              paymentModal.classList.remove('flex');
+              confirmPaymentBtn.innerHTML = originalText;
+              confirmPaymentBtn.classList.add('pink-gradient');
+              confirmPaymentBtn.classList.remove('bg-green-500');
+              confirmPaymentBtn.disabled = false;
+          }, 2000);
+      }, 1500);
+  });
   // ✅ Gửi dữ liệu đến Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbzlnw9uEsqWhaJitRhnSY08NiqHa-aEOYSY3s5ewI0V9E5jSNG-GT0p15H0ErKVzewD/exec", {
     method: "POST",
@@ -215,3 +311,4 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
       alert("⚠️ Gửi dữ liệu thất bại, vui lòng thử lại sau!");
     });
 });
+

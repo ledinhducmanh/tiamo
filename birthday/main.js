@@ -40,8 +40,8 @@ async function loadProducts(allowedOccasionIds = ["O003"]) {
           </div>
           <h4 class="font-semibold text-gray-800 mb-2 line-clamp-2">${item.gift_name}</h4>
           <div class="flex items-center space-x-2 mb-4">
-            <span class="text-pink-500 font-bold text-lg">${price.toLocaleString()}đ</span>
-            <span class="text-gray-400 line-through">${(price + 20000).toLocaleString()}đ</span>
+            <span class="text-pink-500 font-bold text-lg">${price.toLocaleString()}₫</span>
+            <span class="text-gray-400 line-through">${(price + 20000).toLocaleString()}₫</span>
           </div>
           <div class="flex space-x-2">
             <a href="${item.product_url}" target="_blank" 
@@ -90,3 +90,33 @@ async function loadProducts(allowedOccasionIds = ["O003"]) {
 
 // Sử dụng ví dụ: chỉ show O003
 document.addEventListener("DOMContentLoaded", () => loadProducts(["O003"]));
+
+// ====================== CART ======================
+function addToCart(item) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existingItem = cart.find((p) => p.id === item.id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push(item);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  showToast(`🎁 Đã thêm "${item.name}" vào giỏ hàng!`);
+}
+
+// ====================== TOAST ======================
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.remove("opacity-0");
+  toast.classList.add("opacity-100");
+
+  setTimeout(() => {
+    toast.classList.add("opacity-0");
+    toast.classList.remove("opacity-100");
+  }, 2500);
+}

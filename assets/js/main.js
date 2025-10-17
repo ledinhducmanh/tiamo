@@ -25,8 +25,8 @@ async function loadFlashSaleProducts() {
         </div>
         <h4 class="font-semibold text-gray-800 mb-2 line-clamp-2">${item.gift_name}</h4>
         <div class="flex items-center space-x-2 mb-4">
-          <span class="text-pink-500 font-bold text-lg">${item.new_price.toLocaleString()}đ</span>
-          <span class="text-gray-400 line-through">${item.price.toLocaleString()}đ</span>
+          <span class="text-pink-500 font-bold text-lg">${item.new_price.toLocaleString()}₫</span>
+          <span class="text-gray-400 line-through">${item.price.toLocaleString()}₫</span>
         </div>
         <div class="flex space-x-2">
           <a href="${item.product_url}" target="_blank" 

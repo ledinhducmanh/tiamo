@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../assets/css/tailwind.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="QEwzalAXwwn65yO6Bwk9d";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </head>
 <body class="gradient-bg min-h-full">
     <!-- Header -->
@@ -132,16 +135,102 @@
 
             <!-- Tỉnh/Thành phố -->
             <div>
+            <!-- Nhúng thư viện Select2 -->
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+            <style>
+                .select2-container--default .select2-selection--single {
+                height: 48px; /* chỉnh chiều cao */
+                border-radius: 8px; /* bo góc */
+                border: 1px solid #d1d5db; /* màu border xám giống Tailwind */
+                padding: 10px 8px; /* padding bên trong */
+                }
+
+                .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: #374151; /* text-gray-700 */
+                font-size: 16px;
+                }
+                .select2-container--default .select2-selection--single .select2-selection__arrow {
+                height: 100%;
+                right: 10px;
+                }
+            </style>
             <label for="city" class="block text-sm font-medium text-gray-700 mb-2">Tỉnh/Thành phố *</label>
-            <select id="city" name="city" required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors">
+            <select id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors">
                 <option value="">Chọn Tỉnh/Thành phố</option>
                 <option value="hanoi">Hà Nội</option>
                 <option value="hochiminh">TP. Hồ Chí Minh</option>
+                <option value="haiphong">Hải Phòng</option>
                 <option value="danang">Đà Nẵng</option>
                 <option value="cantho">Cần Thơ</option>
+                <option value="angiang">An Giang</option>
+                <option value="bacgiang">Bắc Giang</option>
+                <option value="backan">Bắc Kạn</option>
+                <option value="baclieu">Bạc Liêu</option>
+                <option value="bacninh">Bắc Ninh</option>
+                <option value="bentre">Bến Tre</option>
+                <option value="binhdinh">Bình Định</option>
+                <option value="binhduong">Bình Dương</option>
+                <option value="binhphuoc">Bình Phước</option>
+                <option value="binhthuan">Bình Thuận</option>
+                <option value="camau">Cà Mau</option>
+                <option value="caobang">Cao Bằng</option>
+                <option value="daklak">Đắk Lắk</option>
+                <option value="daknong">Đắk Nông</option>
+                <option value="dienbien">Điện Biên</option>
+                <option value="dongnai">Đồng Nai</option>
+                <option value="dongthap">Đồng Tháp</option>
+                <option value="gialai">Gia Lai</option>
+                <option value="hagiang">Hà Giang</option>
+                <option value="hatinh">Hà Tĩnh</option>
+                <option value="haiduong">Hải Dương</option>
+                <option value="haugiang">Hậu Giang</option>
+                <option value="hoabinh">Hòa Bình</option>
+                <option value="hungyen">Hưng Yên</option>
+                <option value="khanhhoa">Khánh Hòa</option>
+                <option value="kiengiang">Kiên Giang</option>
+                <option value="kontum">Kon Tum</option>
+                <option value="laichau">Lai Châu</option>
+                <option value="lamdong">Lâm Đồng</option>
+                <option value="langson">Lạng Sơn</option>
+                <option value="laocai">Lào Cai</option>
+                <option value="longan">Long An</option>
+                <option value="namdinh">Nam Định</option>
+                <option value="nghean">Nghệ An</option>
+                <option value="ninhbinh">Ninh Bình</option>
+                <option value="ninhthuan">Ninh Thuận</option>
+                <option value="phutho">Phú Thọ</option>
+                <option value="phuyen">Phú Yên</option>
+                <option value="quangbinh">Quảng Bình</option>
+                <option value="quangnam">Quảng Nam</option>
+                <option value="quangngai">Quảng Ngãi</option>
+                <option value="quangninh">Quảng Ninh</option>
+                <option value="quangtri">Quảng Trị</option>
+                <option value="soctrang">Sóc Trăng</option>
+                <option value="sonla">Sơn La</option>
+                <option value="tayninh">Tây Ninh</option>
+                <option value="thaibinh">Thái Bình</option>
+                <option value="thainguyen">Thái Nguyên</option>
+                <option value="thanhhoa">Thanh Hóa</option>
+                <option value="thuathienhue">Thừa Thiên Huế</option>
+                <option value="tiengiang">Tiền Giang</option>
+                <option value="travinh">Trà Vinh</option>
+                <option value="tuyenquang">Tuyên Quang</option>
+                <option value="vinhlong">Vĩnh Long</option>
+                <option value="vinhphuc">Vĩnh Phúc</option>
+                <option value="yenbai">Yên Bái</option>
                 <option value="other">Khác</option>
             </select>
+            <script>
+            $(document).ready(function() {
+                $('#city').select2({
+                placeholder: "Chọn Tỉnh/Thành phố",
+                allowClear: true,
+                width: '100%' // đảm bảo full width giống Tailwind
+                });
+            });
+            </script>
             </div>
 
             <!-- Quốc gia -->
@@ -172,7 +261,6 @@
 
         </form>
         </div>
-
         <!-- Gift Recommendations -->
         <!-- <div class="mt-12">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">🎁 Gợi ý quà tương tự</h2>
@@ -192,7 +280,69 @@
             </div>
         </div> -->
     </main>
+    <!-- Modal QR Payment -->
+    <div id="paymentModal" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl card-shadow max-w-md w-full p-8 modal-enter">
+            <header class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Chuyển Khoản QR</h2>
+                <p class="text-gray-600">Vui lòng không thay đổi bất kì nội dung của bill</p>
+                <div class="mt-3 px-4 py-2 bg-pink-50 rounded-lg border border-pink-200">
+                    <span id="qr-code-price" class="text-pink-600 font-bold text-lg">0.000₫</span>
+                </div>
+            </header>
 
+            <div class="text-center mb-6">
+                <div class="bg-white p-4 rounded-2xl border-4 border-pink-100 inline-block qr-animation">
+                    <!-- QR Code SVG -->
+                    <div id="qr-code">
+                        <img src='https://qr.sepay.vn/img?acc=0862958110&bank=MBBANK&amount=0&des=VUI_LONG_THU_LAI'/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3 mb-6">
+                <div class="bg-pink-50 rounded-xl p-4 border border-pink-100">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600 text-sm">Tên tài khoản:</span>
+                        <span class="font-semibold text-gray-800">LE DINH DUC MANH</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600 text-sm">Số tài khoản:</span>
+                        <span class="font-semibold text-gray-800">0862958110</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-600 text-sm">Ngân hàng:</span>
+                        <span class="font-semibold text-gray-800">NGÂN HÀNG QUÂN ĐỘI MB BANK</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3 mb-6">
+                <button id="saveQrBtn" class="w-full bg-pink-400 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    💾 Lưu QR Code
+                </button>
+                
+                <button id="shareQrBtn" class="w-full bg-pink-50 text-pink-600 py-3 rounded-xl font-semibold border border-pink-200 hover:bg-pink-100 transition-all duration-300">
+                    📤 Chia sẻ QR Code
+                </button>
+            </div>
+
+            <div class="flex space-x-3">
+                <button id="closeModalBtn" class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300">
+                    ❌ Đóng
+                </button>
+                <button id="confirmPaymentBtn" class="flex-1 bg-pink-400 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    ✅ Xác nhận
+                </button>
+            </div>
+
+            <footer class="text-center mt-6">
+                <p class="text-gray-500 text-sm">
+                    🔒 Giao dịch an toàn và bảo mật
+                </p>
+            </footer>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12 px-4">
