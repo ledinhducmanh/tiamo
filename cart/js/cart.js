@@ -193,80 +193,99 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
     purchase_history: JSON.stringify(cart),
     date_created: new Date().toLocaleString("vi-VN"),
   };
-  // Payment
-  const paymentModal = document.getElementById('paymentModal');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const saveQrBtn = document.getElementById('saveQrBtn');
-  const shareQrBtn = document.getElementById('shareQrBtn');
-  const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
-  const qrCode = document.getElementById("qr-code");
-  const qrCodePrice = document.getElementById("qr-code-price");
+ // Payment
+const paymentModal = document.getElementById('paymentModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const saveQrBtn = document.getElementById('saveQrBtn');
+const shareQrBtn = document.getElementById('shareQrBtn');
+const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
+const qrCode = document.getElementById("qr-code");
+const qrCodePrice = document.getElementById("qr-code-price");
 
-  // Mở modal thanh toán
-  qrCodePrice.innerText = `${order.total_price.toLocaleString("vi-VN")}₫`;
-  paymentModal.classList.remove('hidden');
-  paymentModal.classList.add('flex');
-  qrCode.innerHTML = `<img src='https://qr.sepay.vn/img?acc=0862958110&bank=MBBANK&amount=${order.total_price}&des=${customer.customer_id}'/>`
-  // Đóng modal
-  closeModalBtn.addEventListener('click', function() {
-      paymentModal.classList.add('hidden');
-      paymentModal.classList.remove('flex');
-  });
+// Mở modal thanh toán
+qrCodePrice.innerText = `${order.total_price.toLocaleString("vi-VN")}₫`;
+paymentModal.classList.remove('hidden');
+paymentModal.classList.add('flex');
+const qrImgSrc = `https://qr.sepay.vn/img?acc=0862958110&bank=MBBANK&amount=${order.total_price}&des=${customer.customer_id}`;
+qrCode.innerHTML = `<img id="qrImage" src="${qrImgSrc}" alt="QR Code" />`;
+document.body.style.overflow = 'hidden';
 
-  // Đóng modal khi click vào backdrop
-  paymentModal.addEventListener('click', function(e) {
-      if (e.target === paymentModal) {
-          paymentModal.classList.add('hidden');
-          paymentModal.classList.remove('flex');
-      }
-  });
+// Đóng modal
+function closePaymentModal() {
+  paymentModal.classList.add('hidden');
+  paymentModal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+closeModalBtn.addEventListener('click', closePaymentModal);
+paymentModal.addEventListener('click', (e) => {
+  if (e.target === paymentModal) closePaymentModal();
+});
 
-  // Xử lý nút lưu QR Code
-  saveQrBtn.addEventListener('click', function() {
-      const svg = document.querySelector('#paymentModal img');
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const data = new XMLSerializer().serializeToString(svg);
-      const img = new Image();
-      
-      canvas.width = 180;
-      canvas.height = 180;
-      
-      img.onload = function() {
-          ctx.drawImage(img, 0, 0);
-          const link = document.createElement('a');
-          link.download = 'qr-thanh-toan.png';
-          link.href = canvas.toDataURL();
-          link.click();
-      };
-      
-      img.src = 'data:image/svg+xml;base64,' + btoa(data);
-  });
+// =========================
+// 🔹 Lưu QR Code (ảnh <img>)
+// =========================
+saveQrBtn.addEventListener('click', async function() {
+  const qrImg = document.getElementById('qrImage');
+  const imgURL = qrImg.src;
 
-  // Xử lý nút chia sẻ
-  shareQrBtn.addEventListener('click', function() {
-      if (navigator.share) {
-          navigator.share({
-              title: 'QR Code Thanh Toán',
-              text: 'Quét mã QR để thanh toán đơn hàng',
-              url: window.location.href
-          });
-      } else {
-          const url = window.location.href;
-          navigator.clipboard.writeText(url).then(() => {
-              const originalText = shareQrBtn.innerHTML;
-              shareQrBtn.innerHTML = '✅ Đã sao chép link!';
-              shareQrBtn.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
-              shareQrBtn.classList.remove('bg-pink-50', 'text-pink-600', 'border-pink-200');
-              
-              setTimeout(() => {
-                  shareQrBtn.innerHTML = originalText;
-                  shareQrBtn.classList.remove('bg-green-50', 'text-green-600', 'border-green-200');
-                  shareQrBtn.classList.add('bg-pink-50', 'text-pink-600', 'border-pink-200');
-              }, 2000);
-          });
-      }
-  });
+  try {
+    const response = await fetch(imgURL);
+    const blob = await response.blob();
+    const blobURL = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = blobURL;
+    link.download = 'qr-thanh-toan.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(blobURL);
+  } catch (error) {
+    console.error('Lỗi khi tải ảnh QR:', error);
+    alert('❌ Không thể lưu ảnh QR. Vui lòng thử lại.');
+  }
+  document.body.style.overflow = 'hidden';
+
+});
+
+// =========================
+// 🔹 Chia sẻ QR Code
+// =========================
+shareQrBtn.addEventListener('click', async function() {
+  const qrImg = document.getElementById('qrImage');
+  const imgURL = qrImg.src;
+
+  try {
+    const response = await fetch(imgURL);
+    const blob = await response.blob();
+
+    if (navigator.canShare && navigator.canShare({ files: [new File([blob], 'qr-thanh-toan.png', { type: blob.type })] })) {
+      await navigator.share({
+        title: 'QR Code Thanh Toán',
+        text: 'Quét mã QR để thanh toán đơn hàng của bạn.',
+        files: [new File([blob], 'qr-thanh-toan.png', { type: blob.type })]
+      });
+    } else {
+      // fallback nếu trình duyệt không hỗ trợ chia sẻ file
+      await navigator.clipboard.writeText(imgURL);
+      const originalText = shareQrBtn.innerHTML;
+      shareQrBtn.innerHTML = '✅ Đã sao chép link QR!';
+      shareQrBtn.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
+      shareQrBtn.classList.remove('bg-pink-50', 'text-pink-600', 'border-pink-200');
+      setTimeout(() => {
+        shareQrBtn.innerHTML = originalText;
+        shareQrBtn.classList.remove('bg-green-50', 'text-green-600', 'border-green-200');
+        shareQrBtn.classList.add('bg-pink-50', 'text-pink-600', 'border-pink-200');
+      }, 2000);
+    }
+  } catch (error) {
+    console.error('Lỗi khi chia sẻ ảnh QR:', error);
+    alert('❌ Không thể chia sẻ ảnh QR.');
+  }
+  document.body.style.overflow = 'hidden';
+
+});
+
 
   // Xử lý xác nhận thanh toán
   confirmPaymentBtn.addEventListener('click', function() {
@@ -288,6 +307,8 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
               confirmPaymentBtn.disabled = false;
           }, 2000);
       }, 1500);
+      document.body.style.overflow = 'hidden';
+
   });
   // ✅ Gửi dữ liệu đến Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbzlnw9uEsqWhaJitRhnSY08NiqHa-aEOYSY3s5ewI0V9E5jSNG-GT0p15H0ErKVzewD/exec", {
@@ -312,3 +333,97 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
     });
 });
 
+async function loadFlashSaleProducts() {
+  const container = document.getElementById("flash-sale-products");
+  try {
+    const res = await fetch(
+      "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLgQV0z6MIfQCmjh_bugs5dhBSUhHirWIccSL7wbLpZUmqVmQ8kxeLymdnMEv1wbnW76eGUdEGWGdMPKYco5v8y0eB7Ym6S9Sz5QgxC04zAG0ylpQK7Xxp7G-DDcqu0awKwkEc6rjZ-wUir6DFkchix-1DrGvclP8LeXppFKjTlcL94QqwgKjx7w7QbKuFlKc6V0ylWIvAtrF0iPgh_dgxSA_4RYnLEm8BEqtpxdZNeXki4x4GVcv52FZPRdjrVH68xE_PGHBm8ZeIX7nhQlQorXROagGw&lib=M9RGpGYbJj7gakkO831gGC_26MWEnK4vG"
+    );
+    const data = await res.json();
+
+    const products = data.data;
+    container.innerHTML = ""; // Xóa loading
+
+    // Render từng sản phẩm
+    products.forEach((item) => {
+      const discount = Math.round((1 - item.new_price / item.price) * 100);
+
+      const card = document.createElement("div");
+      card.className =
+        "product-card rounded-2xl p-6 card-hover bg-white shadow-md hover:shadow-lg transition";
+      card.innerHTML = `
+        <div class="relative mb-4">
+          <div class="w-full bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-6xl">
+            <img class="rounded-2xl overflow-hidden" src="../assets/img/${item.gift_id}.webp" alt="${item.gift_name}">
+          </div>
+          <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">-${discount}%</span>
+        </div>
+        <h4 class="font-semibold text-gray-800 mb-2 line-clamp-2">${item.gift_name}</h4>
+        <div class="flex items-center space-x-2 mb-4">
+          <span class="text-pink-500 font-bold text-lg">${item.new_price.toLocaleString()}₫</span>
+          <span class="text-gray-400 line-through">${item.price.toLocaleString()}₫</span>
+        </div>
+        <div class="flex space-x-2">
+          <a href="${item.product_url}" target="_blank" 
+             class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors text-center">
+             🛒 Mua ngay
+          </a>
+          <button class="flex-1 btn-primary bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg transition">
+            💝 Tặng ngay
+          </button>
+        </div>
+      `;
+
+      // Gắn sự kiện cho nút "Tặng ngay"
+      const giftButton = card.querySelector("button");
+      giftButton.addEventListener("click", () => {
+        addToCart({
+          id: item.gift_id,
+          name: item.gift_name,
+          price: item.new_price,
+          img: `./assets/img/${item.gift_id}.webp`,
+          quantity: 1,
+          type: item.type || "General",
+        });
+      });
+
+      container.appendChild(card);
+    });
+  } catch (error) {
+    container.innerHTML =
+      '<p class="col-span-full text-center text-red-500">Không thể tải dữ liệu 😢</p>';
+    console.error("Error fetching products:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadFlashSaleProducts);
+
+// ====================== CART ======================
+function addToCart(item) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existingItem = cart.find((p) => p.id === item.id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push(item);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  showToast(`🎁 Đã thêm "${item.name}" vào giỏ hàng!`);
+}
+
+// ====================== TOAST ======================
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.remove("opacity-0");
+  toast.classList.add("opacity-100");
+
+  setTimeout(() => {
+    toast.classList.add("opacity-0");
+    toast.classList.remove("opacity-100");
+  }, 2500);
+}

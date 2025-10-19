@@ -78,3 +78,7 @@ body {
 #paymentModal.flex {
   display: flex;
 }
+#paymentModal .modal-content {
+  transform: scale(0.7) !important;
+  transform-origin: center;
+}

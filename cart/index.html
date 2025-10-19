@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/tailwind.css">
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
     (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="QEwzalAXwwn65yO6Bwk9d";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
@@ -261,30 +262,95 @@
 
         </form>
         </div>
-        <!-- Gift Recommendations -->
-        <!-- <div class="mt-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">🎁 Gợi ý quà tương tự</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow-sm border border-pink-100 overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
-                    <img src="../assets/img/gift1.jpg" class="w-full h-56 object-cover">
-                    <div class="p-4">
-                    <h3 class="font-semibold text-gray-900">Hộp quà “For Her” – Nến thơm & Chocolate</h3>
-                    <div class="flex justify-between items-center mt-2">
-                        <span class="font-bold text-pink-600">249.000₫</span>
-                        <button class="bg-pink-100 hover:bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm transition-colors">
-                        Thêm vào giỏ
-                        </button>
+        <h1 class="text-3xl font-bold text-pink-600 mb-2 mt-12 mb-8 text-center">Quà tương tự 😍</h1>
+        <div id="flash-sale-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+             <div role="status" class="max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                    <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                        <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                            <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                        </svg>
                     </div>
+                    <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                    <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div class="flex items-center mt-4">
+                        <div>
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                        </div>
+                    </div>
+                    <span class="sr-only">Loading...</span>
+            </div>
+            <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                    <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                    </svg>
+                </div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                <div class="flex items-center mt-4">
+                    <div>
+                        <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                        <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                     </div>
                 </div>
+                <span class="sr-only">Loading...</span>
             </div>
-        </div> -->
+            <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                    <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                    </svg>
+                </div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                <div class="flex items-center mt-4">
+                    <div>
+                        <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                        <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    </div>
+                </div>
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div role="status" class="hidden md:block max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-700">
+                <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-700">
+                    <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                        <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                    </svg>
+                </div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                <div class="flex items-center mt-4">
+                    <div>
+                        <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div>
+                        <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    </div>
+                </div>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
     </main>
+    <!-- NOTIFICATION ADDED CART -->
+    <div id="toast"
+    class="fixed bottom-6 right-6 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50">
+    </div>
     <!-- Modal QR Payment -->
     <div id="paymentModal" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-3xl card-shadow max-w-md w-full p-8 modal-enter">
+        <div class="modal-content bg-white rounded-3xl card-shadow max-w-md w-full p-8 modal-enter">
             <header class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">Chuyển Khoản QR</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Chuyển Khoản Xác Nhận Đơn</h2>
                 <p class="text-gray-600">Vui lòng không thay đổi bất kì nội dung của bill</p>
                 <div class="mt-3 px-4 py-2 bg-pink-50 rounded-lg border border-pink-200">
                     <span id="qr-code-price" class="text-pink-600 font-bold text-lg">0.000₫</span>
@@ -342,6 +408,7 @@
                 </p>
             </footer>
         </div>
+    
     </div>
 
     <!-- Footer -->
