@@ -1,0 +1,21 @@
+/* ========== PRELOADER ========== */
+/* PRELOADER */
+#preload {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* nền trắng hoặc bạn đổi màu khác */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 2s ease;
+  background: radial-gradient(circle, #ffffff 0%, #f8f8f8 100%);
+}
+
+/* Ảnh GIF */
+.loading-gif {
+  width: 300px;   /* kích thước bạn muốn */
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}

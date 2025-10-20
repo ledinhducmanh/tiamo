@@ -1,0 +1,96 @@
+/* Fireworks  */
+/* <div class="fireworks">
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+</div> */
+.fireworks {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+pointer-events: none;
+}
+
+/* Mỗi pháo hoa */
+.firework {
+position: absolute;
+bottom: 0;
+width: 4px;
+height: 80px;
+background: linear-gradient(to bottom, #fffa, transparent);
+left: calc(50% - 2px);
+animation: shoot 2.5s ease-in infinite;
+}
+
+/* Thêm ngẫu nhiên vị trí và độ trễ */
+.firework:nth-child(1) {
+left: 25%;
+animation-delay: 0s;
+}
+.firework:nth-child(2) {
+left: 60%;
+animation-delay: 1s;
+}
+.firework:nth-child(3) {
+left: 80%;
+animation-delay: 1.8s;
+}
+
+/* Hiệu ứng bay lên */
+@keyframes shoot {
+0% {
+    transform: translateY(0);
+    opacity: 1;
+}
+60% {
+    transform: translateY(-70vh);
+    opacity: 1;
+}
+70% {
+    opacity: 0;
+}
+71% {
+    transform: translateY(-70vh);
+    opacity: 1;
+}
+100% {
+    transform: translateY(-70vh);
+    opacity: 0;
+}
+}
+
+/* Hiệu ứng nổ */
+.firework::after {
+content: "";
+position: absolute;
+top: -10px;
+left: -10px;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+box-shadow:
+    0 0 #ff0,
+    10px 0 #f0f,
+    -10px 0 #0ff,
+    0 10px #0f0,
+    0 -10px #f00,
+    7px 7px #00f,
+    -7px 7px #ff6600,
+    7px -7px #ff00ff,
+    -7px -7px #00ffff;
+opacity: 0;
+animation: explode 2.5s ease-out infinite;
+}
+
+.firework:nth-child(1)::after { animation-delay: 0s; }
+.firework:nth-child(2)::after { animation-delay: 1s; }
+.firework:nth-child(3)::after { animation-delay: 1.8s; }
+
+@keyframes explode {
+0%, 60% { transform: scale(0); opacity: 0; }
+65% { transform: scale(1); opacity: 1; }
+100% { transform: scale(1.8); opacity: 0; }
+}

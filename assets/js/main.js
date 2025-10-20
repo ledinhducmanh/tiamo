@@ -31,10 +31,10 @@ async function loadFlashSaleProducts() {
         <div class="flex space-x-2">
           <a href="${item.product_url}" target="_blank" 
              class="flex-1 bg-pink-100 text-pink-600 py-2 rounded-lg hover:bg-pink-200 transition-colors text-center">
-             🛒 Mua ngay
+             🛒Mua ngay
           </a>
           <button class="flex-1 btn-primary bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg transition">
-            💝 Tặng ngay
+            💝Tặng ngay
           </button>
         </div>
       `;

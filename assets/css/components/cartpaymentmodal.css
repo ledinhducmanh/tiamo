@@ -1,0 +1,23 @@
+/* ==============Cart Payment=============== */
+/* ✅ CSS cho modal nền (backdrop) */
+#paymentModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 👈 bóng đen mờ phía sau */
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  display: none; /* ẩn mặc định */
+}
+
+/* ✅ Khi hiển thị modal */
+#paymentModal.flex {
+  display: flex;
+}
+#paymentModal .modal-content {
+  transform: scale(0.7) !important;
+  transform-origin: center;
+}
