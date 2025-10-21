@@ -9,7 +9,7 @@
   align-items: center;
   z-index: 9999;
   transition: opacity 0.6s ease, visibility 2s ease;
-  background: radial-gradient(circle, #ffffff 0%, #f8f8f8 100%);
+  background: radial-gradient(circle, #fff 0%, #fff 100%);
 }
 
 /* Ảnh GIF */

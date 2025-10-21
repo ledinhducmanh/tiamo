@@ -27,39 +27,54 @@ document.addEventListener("DOMContentLoaded", () => {
     const html = Object.entries(cartItems)
       .map(
         ([id, item], index) => `
-        <div class="p-6 flex items-center space-x-4 border-b border-gray-100">
-          <div class="coffee-coaster w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden">
-              <img src="../assets/img/${item.id}.webp" class="w-full h-full object-cover" alt="${item.name}">
-          </div>
-          <div class="flex-1">
-              <h3 class="font-semibold text-gray-900">${item.name}</h3>
-              <div class="flex items-center space-x-2 mt-1">
-                  <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">${item.type}</span>
-              </div>
-          </div>
-          <div class="text-right">
-              <p class="font-semibold text-gray-900">${item.price.toLocaleString("vi-VN")}₫</p>
-              <div class="flex items-center space-x-2 mt-2">
-                  <button data-id="${id}" data-change="-1" class="btn-qty w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
-                      <span class="text-gray-600">−</span>
-                  </button>
-                  <span id="qty-${id}" class="w-8 text-center font-medium">${item.quantity}</span>
-                  <button data-id="${id}" data-change="1" class="btn-qty w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
-                      <span class="text-gray-600">+</span>
-                  </button>
-              </div>
-          </div>
-          <div class="text-right ml-4">
-              <p id="subtotal-${id}" class="font-bold text-gray-900">${(
-                item.price * item.quantity
-              ).toLocaleString("vi-VN")}₫</p>
-              <button data-id="${id}" class="btn-remove mt-2 text-red-500 hover:text-red-700 transition-colors">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                  </svg>
-              </button>
+        <div class="p-4 md:p-6 flex flex-col md:flex-row md:items-center md:space-x-4 border-b border-gray-100">
+        <!-- Ảnh sản phẩm -->
+        <div class="coffee-coaster w-full md:w-24 h-48 md:h-20 rounded-lg overflow-hidden flex-shrink-0">
+          <img src="../assets/img/${item.id}.webp" class="w-full h-full object-cover" alt="${item.name}">
+        </div>
+
+        <!-- Nội dung sản phẩm -->
+        <div class="flex-1 mt-3 md:mt-0">
+          <h3 class="font-semibold text-gray-900 text-sm md:text-base line-clamp-2">${item.name}</h3>
+          <div class="flex items-center space-x-2 mt-1">
+            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">${item.type}</span>
           </div>
         </div>
+
+        <!-- Giá, số lượng, tổng tiền, nút xóa -->
+        <div class="mt-3 md:mt-0 flex md:flex-nowrap items-center gap-3 md:gap-6">
+          <!-- Giá -->
+          <p class="font-semibold text-gray-900 whitespace-nowrap">${item.price.toLocaleString("vi-VN")}₫</p>
+
+          <!-- Số lượng -->
+          <div class="flex items-center">
+            <button data-id="${id}" data-change="-1"
+              class="btn-qty w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+              <span class="text-gray-600">−</span>
+            </button>
+            <span id="qty-${id}" class="w-8 text-center font-medium">${item.quantity}</span>
+            <button data-id="${id}" data-change="1"
+              class="btn-qty w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+              <span class="text-gray-600">+</span>
+            </button>
+          </div>
+
+          <!-- Tổng tiền -->
+          <p id="subtotal-${id}" class="font-bold text-gray-900 whitespace-nowrap">
+            ${(item.price * item.quantity).toLocaleString("vi-VN")}₫
+          </p>
+
+          <!-- Nút xóa -->
+          <button data-id="${id}" class="btn-remove text-red-500 hover:text-red-700 transition-colors flex items-center justify-start">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+
       `
       )
       .join("");

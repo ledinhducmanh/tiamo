@@ -24,6 +24,13 @@
     <div id="preload">
         <img src="./assets/img/preload.gif" alt="Loading..." class="loading-gif">
     </div>
+    <!-- CSS COMPONENT -->
+    <link rel="stylesheet" href="./assets/css/components/preload.css">
+    <!-- JS COMPONENT -->
+    <script src="./assets/js/components/preload.js"></script>
+    <script src="./assets/js/components/search.js"></script>
+    <script src="./assets/js/components/countdown.js"></script>
+    
     <!-- Header -->
     <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,8 +44,7 @@
                     <a href="#home" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Trang chủ</a>
                     <a href="#occasions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo dịp lễ</a>
                     <a href="#recipients" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Theo đối tượng</a>
-                    <a href="#suggestions" class="mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Gợi ý quà</a>
-                    <a href="#blog" class=" mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Blog</a>
+                    <a href="#blog" class=" mr-3 ml-3 text-gray-700 hover:text-pink-500 transition-colors">Cẩm nang quà tặng</a>
                 </nav>
                 <div class="flex items-center space-x-4 ml-11">
                     <a href="/cart/" class="text-white">
@@ -68,69 +74,72 @@
             </div>
         </div>
     </header>
-
     <!-- Hero Banner -->
-    <section id="home" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" 
+        class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-center bg-cover bg-no-repeat"
+        style="background-image: url('https://cdn.svgator.com/images/2022/06/svg-texture-background-geometric.svg'); background-size: 110%;">
 
-    <!-- Background SVG -->
-    <object 
-        type="image/svg+xml" 
-        data="https://cdn.svgator.com/images/2022/06/svg-texture-background-geometric.svg"
-        class="absolute inset-0 w-full h-full object-cover -z-10 scale-150">
-    </object>
+        <!-- Overlay làm mờ nền tổng thể -->
+        <div class="absolute inset-0 bg-white/70 backdrop-blur-sm -z-10"></div>
 
-    <!-- Overlay làm mờ nền (để text dễ đọc hơn) -->
-    <div class="absolute inset-0 bg-white/70 backdrop-blur-sm -z-10"></div>
+        <!-- Nội dung chính -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl shadow-xl p-20">
+            <h2 class="text-5xl font-bold text-gray-800 mb-6 mt-2">
+                Trao quà – Gửi yêu thương 💕
+            </h2>
+            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                Khám phá hàng ngàn món quà ý nghĩa, được chọn lọc kỹ càng để gửi gắm tình cảm đến những người bạn yêu thương
+            </p>
 
-    <!-- Nội dung chính -->
-    <div class="text-center px-6 max-w-5xl relative z-10">
-        <h2 class="text-5xl font-bold text-gray-800 mb-6 mt-6">
-        Trao quà – Gửi yêu thương 💕
-        </h2>
-        <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-        Khám phá hàng ngàn món quà ý nghĩa, được chọn lọc kỹ càng để gửi gắm tình cảm đến những người bạn yêu thương
-        </p>
+            <!-- Search Bar -->
+            <div class="search-bar max-w-2xl mx-auto rounded-full p-2 shadow-md mb-12 bg-white/90 backdrop-blur relative">
+            <div class="flex items-center">
+                <input 
+                id="searchInput"
+                type="text" 
+                placeholder="Tìm quà cho người bạn yêu thương cùng TiamoAI..." 
+                class="flex-1 px-6 py-3 bg-transparent outline-none text-gray-700 placeholder-gray-500">
+                <i id="clearBtn" class="fa-regular fa-circle-xmark mr-5 text-gray-700 cursor-pointer"></i>
+                <button 
+                id="searchBtn"
+                class="btn-primary text-white px-8 py-3 rounded-full font-medium bg-pink-500 hover:bg-pink-600 transition">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
 
-        <!-- Search Bar -->
-        <div class="search-bar max-w-2xl mx-auto rounded-full p-2 shadow-lg mb-12 bg-white">
-        <div class="flex items-center">
-            <input type="text" placeholder="Tìm quà cho người bạn yêu thương..." 
-                class="flex-1 px-6 py-3 bg-transparent outline-none text-gray-700">
-            <button class="btn-primary text-white px-8 py-3 rounded-full font-medium bg-pink-500 hover:bg-pink-600 transition">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            <!-- Kết quả tìm kiếm -->
+            <div id="searchResults" 
+                class="absolute top-full left-0 w-full mt-3 bg-white/95 backdrop-blur rounded-2xl shadow-lg p-4 hidden z-50
+                    max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-pink-400 scrollbar-track-pink-100">
+            </div>
+
         </div>
+            <!-- Quick Suggestions -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">🎯 Gợi ý nhanh</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="/valentine/" class="bg-red-100 text-red-600 px-6 py-3 rounded-full hover:bg-red-200 transition-colors">
+                        ❤️ Valentine (14/2)
+                    </a>
+                    <a href="/womenday/" class="bg-pink-100 text-pink-600 px-6 py-3 rounded-full hover:bg-pink-200 transition-colors">
+                        🌸 Ngày Phụ nữ (8/3)
+                    </a>
+                    <a href="/birthday/" class="bg-blue-100 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-200 transition-colors">
+                        🎂 Sinh nhật
+                    </a>
+                    <a href="/christmas/" class="bg-green-100 text-green-600 px-6 py-3 rounded-full hover:bg-green-200 transition-colors">
+                        🎅 Giáng sinh
+                    </a>
+                    <a href="/tetholiday/" class="bg-yellow-100 text-yellow-600 px-6 py-3 rounded-full hover:bg-yellow-200 transition-colors">
+                        🧧 Tết Nguyên Đán
+                    </a>
+                    <a href="/anniversary/" class="bg-purple-100 text-purple-600 px-6 py-3 rounded-full hover:bg-purple-200 transition-colors">
+                        🎓 Kỷ niệm
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <!-- Quick Suggestions -->
-        <div class="mb-16">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">🎯 Gợi ý nhanh</h3>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="/valentine/" class="bg-red-100 text-red-600 px-6 py-3 rounded-full hover:bg-red-200 transition-colors">
-            ❤️ Valentine (14/2)
-            </a>
-            <a href="/womenday/" class="bg-pink-100 text-pink-600 px-6 py-3 rounded-full hover:bg-pink-200 transition-colors">
-            🌸 Ngày Phụ nữ (8/3)
-            </a>
-            <a href="/birthday/" class="bg-purple-100 text-purple-600 px-6 py-3 rounded-full hover:bg-purple-200 transition-colors">
-            🎂 Sinh nhật
-            </a>
-            <a href="/christmas/" class="bg-green-100 text-green-600 px-6 py-3 rounded-full hover:bg-green-200 transition-colors">
-            🎅 Giáng sinh
-            </a>
-            <a href="/tetholiday/" class="bg-yellow-100 text-yellow-600 px-6 py-3 rounded-full hover:bg-yellow-200 transition-colors">
-            🧧 Tết Nguyên Đán
-            </a>
-            <a href="/anniversary/" class="bg-blue-100 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-200 transition-colors">
-            🎓 Kỷ niệm
-            </a>
-        </div>
-        </div>
-    </div>
-
     </section>
-
-
     <!-- Flash Sale -->
     <section class="py-12 px-4 bg-gradient-to-r from-pink-50 to-rose-50">
         <div class="max-w-7xl mx-auto">
@@ -322,88 +331,6 @@
         </div>
     </section>
 
-    <!-- Gift Suggestions -->
-    <section id="suggestions" class="py-16 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">🌟 Gợi ý quà thông minh</h3>
-            
-            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-                <div class="text-center mb-8">
-                    <h4 class="text-2xl font-semibold text-gray-800 mb-4">Tìm quà hoàn hảo trong 3 bước</h4>
-                    <p class="text-gray-600">Trả lời vài câu hỏi đơn giản, chúng tôi sẽ gợi ý những món quà phù hợp nhất</p>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-3">1. Bạn muốn tặng ai? 👥</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                💕 Người yêu
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                👨‍👩‍👧‍👦 Gia đình
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                👫 Bạn bè
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                👔 Đồng nghiệp
-                            </button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-3">2. Trong dịp gì? 🎉</label>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                🎂 Sinh nhật
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                ❤️ Valentine
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                🌸 8/3 - 20/10
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                🎅 Giáng sinh
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                🧧 Tết
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                💍 Kỷ niệm
-                            </button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-3">3. Ngân sách của bạn? 💰</label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                Dưới 200k
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                200k - 500k
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                500k - 1tr
-                            </button>
-                            <button class="p-3 border-2 border-pink-200 rounded-lg hover:border-pink-400 hover:bg-pink-50 transition-colors">
-                                Trên 1tr
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="text-center pt-6">
-                        <button class="btn-primary text-white px-12 py-4 rounded-full text-lg font-medium">
-                            ✨ Tìm quà hoàn hảo
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Blog Section -->
     <section id="blog" class="py-16 px-4 bg-gradient-to-r from-pink-50 to-rose-50">
         <div class="max-w-7xl mx-auto">
@@ -411,35 +338,35 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center text-6xl">
-                        💝
+                    <div class="h-48 bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center text-6xl overflow-hidden">
+                        <img src="./assets/img/G130.webp">
                     </div>
                     <div class="p-6">
-                        <h4 class="font-semibold text-gray-800 mb-3">10 món quà ý nghĩa tặng người yêu dịp Valentine</h4>
-                        <p class="text-gray-600 text-sm mb-4">Khám phá những món quà độc đáo và ý nghĩa để làm tan chảy trái tim người ấy...</p>
-                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                        <h4 class="font-semibold text-gray-800 mb-3">TỰ HÀO VIỆT NAM: Chọn Áo Đỏ Sao Vàng</h4>
+                        <p class="text-gray-600 text-sm mb-4">Khoác lên mình màu cờ, cùng nhau tạo nên biển đỏ rực rỡ chào mừng ngày lịch sử...</p>
+                        <a href="https://www.facebook.com/reel/1606140134102802" class="text-red-600 font-medium hover:text-red-700">Xem Ngay Bộ Sưu Tập Áo →</a>
                     </div>
                 </article>
 
                 <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl">
-                        🎂
+                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center text-6xl overflow-hidden">
+                        <img src="./assets/img/G018.webp">
                     </div>
                     <div class="p-6">
                         <h4 class="font-semibold text-gray-800 mb-3">Top 5 hộp quà sinh nhật độc đáo và ấn tượng</h4>
                         <p class="text-gray-600 text-sm mb-4">Những ý tưởng quà sinh nhật sáng tạo sẽ khiến người nhận không thể quên...</p>
-                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                        <a href="https://www.facebook.com/photo?fbid=122097173157084963&set=a.122097175053084963" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
                     </div>
                 </article>
 
                 <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl">
-                        🎁
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center text-6xl overflow-hidden">
+                        <img src="./assets/img/G144.webp">
                     </div>
                     <div class="p-6">
-                        <h4 class="font-semibold text-gray-800 mb-3">Cách gói quà đẹp và chuyên nghiệp trong 5 phút</h4>
+                        <h4 class="font-semibold text-gray-800 mb-3">Cách gói quà chuyên nghiệp trong 30 giây</h4>
                         <p class="text-gray-600 text-sm mb-4">Hướng dẫn chi tiết cách gói quà đẹp mắt với những mẹo đơn giản...</p>
-                        <a href="#" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
+                        <a href="https://www.facebook.com/reel/1024825503083682" class="text-pink-500 font-medium hover:text-pink-600">Đọc thêm →</a>
                     </div>
                 </article>
             </div>
@@ -494,12 +421,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- JS COMPONENT -->
-    <script src="./assets/js/components/preload.js"></script>
-    <script src="./assets/js/components/countdown.js"></script>
     <script src="./assets/js/components/smoothnavigation.js"></script>
-    <!-- CSS COMPONENT -->
-    <link rel="stylesheet" href="./assets/css/components/preload.css">
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c3ecf6a1420651',t:'MTc2MDA3NjMyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

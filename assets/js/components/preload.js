@@ -5,7 +5,7 @@
 
 // Preload
 const preLoadingPage = document.getElementById('preload');
-
+document.body.style.overflow = 'hidden';
 window.addEventListener('load', () => {
     // 👇 Thêm delay 1000ms để chờ object hoặc hình ảnh khác
     setTimeout(() => {
@@ -14,6 +14,7 @@ window.addEventListener('load', () => {
 
     setTimeout(() => {
         preLoadingPage.remove();
+        document.body.style.overflow = '';
     }, 600); // khớp với CSS transition
-    }, 3000); // 👈 delay 1 giây
+    }, 1000); // 👈 delay 1 giây
 });
