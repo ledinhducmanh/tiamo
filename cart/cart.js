@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCartSummary() {
     const totalItems = Object.values(cartItems).reduce((sum, i) => sum + i.quantity, 0);
     const subtotal = Object.values(cartItems).reduce((sum, i) => sum + i.price * i.quantity, 0);
-    const discount = subtotal * 0.05;
+    const discount = subtotal * 0.02;
     const shipping = subtotal > 0 ? (subtotal < 500000 ? 50000 : 100000) : 0;
     const feeElement = document.getElementById("fee")
     feeElement.innerText = `${shipping.toLocaleString("vi-VN")}₫`;
@@ -182,7 +182,7 @@ document.getElementById("checkout-btn")?.addEventListener("click", () => {
 
   // ✅ Tính tổng tiền (đã fix)
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const discount = subtotal * 0.05;
+  const discount = subtotal * 0.02;
   const shipping = subtotal > 0 ? (subtotal < 500000 ? 50000 : 100000) : 0;
   
   const total_price = subtotal - discount + shipping;
